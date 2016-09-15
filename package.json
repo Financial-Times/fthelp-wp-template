@@ -1,0 +1,11 @@
+{
+  "name": "origami-build-tools",
+  "version": "5.5.3",
+  "description": "fthelp wordpress template",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "origami-build-tools": "^5.5.2"
+  },
+  "devDependencies": {
+  }
+}

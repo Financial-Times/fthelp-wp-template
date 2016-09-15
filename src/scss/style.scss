@@ -1,0 +1,14 @@
+$o-colors-is-silent: true;
+@import 'o-colors/main';
+
+$o-fonts-is-silent: true;
+@import 'o-fonts/main';
+
+@include oFontsInclude(MetricWeb, semibold);
+
+body {
+  background-color: oColorsGetPaletteColor("pink");
+  margin: 0;
+  padding: 0;
+}
+
