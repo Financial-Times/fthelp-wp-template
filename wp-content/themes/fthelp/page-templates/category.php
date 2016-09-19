@@ -3,8 +3,8 @@
  * Template Name: Category Page
  *
  * @package WordPress
- * @subpackage next_help
- * @since next_help 1.0
+ * @subpackage ft_help
+ * @since ft_help 1.0
  */
 
 get_header(); ?>

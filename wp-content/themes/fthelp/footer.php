@@ -139,5 +139,6 @@
   <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 
   <?php wp_footer(); ?>
+  
 </body>
 </html>
