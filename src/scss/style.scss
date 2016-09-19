@@ -12,3 +12,35 @@ body {
   padding: 0;
 }
 
+.breadcrumbs  {
+  background-color: oColorsGetPaletteColor("white");
+  border-bottom:solid 1px grey;
+  color:#oColorsGetPaletteColor("org-b2c-dark"); 
+  line-height:28px;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;    
+    }
+  }
+
+}
+
+
+.home-template {
+
+  ul {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+}
