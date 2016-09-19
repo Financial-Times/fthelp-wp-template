@@ -7,15 +7,24 @@ $o-fonts-is-silent: true;
 @include oFontsInclude(MetricWeb, semibold);
 
 body {
-  background-color: oColorsGetPaletteColor("pink");
+  background-color: red;
   margin: 0;
   padding: 0;
+}
+
+.header-sub-brand {
+  background-color: oColorsGetPaletteColor("org-b2c");
+  .o-typography-subhead {
+    color: oColorsGetPaletteColor("white");
+    margin:0;
+    line-height: 70px;
+  }
 }
 
 .breadcrumbs  {
   background-color: oColorsGetPaletteColor("white");
   border-bottom:solid 1px grey;
-  color:#oColorsGetPaletteColor("org-b2c-dark"); 
+  color: oColorsGetPaletteColor("org-b2c-dark");
   line-height:28px;
   font-size: 16px;
   text-transform: uppercase;
@@ -29,7 +38,46 @@ body {
 
 }
 
+form.searchform {
+  margin-top: 20px;
+  .o-icons-icon--search {
+    width:28px;
+    height: 17px;
+  }
+}
 
+.primary-action {
+  .chat, .contact, .new-ft, .old-ft {
+    padding: 0 0 0 80px;
+    background-repeat: no-repeat;
+
+    div {
+      font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+      font-weight: bold;
+      color: oColorsGetPaletteColor("grey-tint5");
+      font-size: 28px;
+
+    }
+  }
+
+  .chat {
+    background-image: url("images/live-chat.png");
+  }
+  .contact {
+    background-image: url("images/contact-us.png");
+  }
+  .new-ft {
+    background-image: url("images/take-a-tour.png");
+  }
+  .old-ft {
+    background-image: url("images/opt-out.png");
+  }
+
+
+}
+
+
+// ----------------------------------------------------------------------------------------------------------
 .home-template {
 
   ul {

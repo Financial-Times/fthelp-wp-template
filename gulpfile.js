@@ -7,13 +7,11 @@ var buildFolder = './wp-content/themes/fthelp';
 var paths = {
 
   scss: ['./src/scss/style.scss'],
-  watch: ['./src/scss/*.scss']
+  watch: ['./src/scss/**/*.scss', './src/templates/**/*.php', './src/images/**']
 }
 
 gulp.task('build', function(callback) {
-  console.log('build');
-  runSequence('clean-build', 'build-css', 'copy-template', callback);
-
+  runSequence('clean-build', 'build-css', 'copy-template', 'copy-images', callback);
 });
 
 gulp.task('clean-build', function(callback){
@@ -21,14 +19,16 @@ gulp.task('clean-build', function(callback){
 });
 
 gulp.task('build-css', function () {
-  console.log('build-css');
   return obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, sourcemaps: 'inline', buildCss: 'style.css'});
 
 });
 
 gulp.task('copy-template', function () {
-  console.log('copy-template');
-  return gulp.src('./src/templates/**').pipe(gulp.dest(buildFolder));
+  return gulp.src('./src/templates/**/*.*').pipe(gulp.dest(buildFolder));
+});
+
+gulp.task('copy-images', function () {
+  return gulp.src('./src/images/**/*.*').pipe(gulp.dest(buildFolder + '/images'));
 });
 
 // gulp.task('rename-css', function (callback) {
@@ -36,8 +36,6 @@ gulp.task('copy-template', function () {
 //   .pipe(rename('style.css'))
 //   .pipe(gulp.dest(buildFolder));
 // });
-
-
 
 gulp.task('releases', function() {
     obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, env:'production'});
