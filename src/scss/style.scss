@@ -7,7 +7,7 @@ $o-fonts-is-silent: true;
 @include oFontsInclude(MetricWeb, semibold);
 
 body {
-  background-color: red;
+  background-color: oColorsGetPaletteColor("pink");;
   margin: 0;
   padding: 0;
 }
