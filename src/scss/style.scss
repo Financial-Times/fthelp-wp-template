@@ -47,30 +47,42 @@ form.searchform {
 }
 
 .primary-action {
+
   .chat, .contact, .new-ft, .old-ft {
-    padding: 0 0 0 80px;
+    padding: 0 0 30px 90px;
+    margin-top: 30px;
     background-repeat: no-repeat;
 
     div {
       font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-      font-weight: bold;
+      // font-weight: bold;
       color: oColorsGetPaletteColor("grey-tint5");
-      font-size: 28px;
+      font-size: 24px;
+      min-height: 56px;
 
+    }
+    .o-buttons {
+      background-color: oColorsGetPaletteColor("org-b2c");
+      border-color: oColorsGetPaletteColor("org-b2c");
+      color: oColorsGetPaletteColor("white");
     }
   }
 
+  .chat, .contact {
+    border-bottom: solid 1px #979797;
+  }
+
   .chat {
-    background-image: url("images/live-chat.png");
+    background-image: url("images/primary-action/live-chat.png");
   }
   .contact {
-    background-image: url("images/contact-us.png");
+    background-image: url("images/primary-action/contact-us.png");
   }
   .new-ft {
-    background-image: url("images/take-a-tour.png");
+    background-image: url("images/primary-action/take-a-tour.png");
   }
   .old-ft {
-    background-image: url("images/opt-out.png");
+    background-image: url("images/primary-action/opt-out.png");
   }
 
 
@@ -79,6 +91,18 @@ form.searchform {
 
 // ----------------------------------------------------------------------------------------------------------
 .home-template {
+
+  h2.o-typography-subhead--crosshead {
+    border-bottom: none;
+    border-top: 1px solid #979797;
+    font-size:26px;
+    line-height: 54px;
+    font-weight: normal;
+    color:#4a4a4a;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
 
   ul {
     -moz-column-count: 2;
@@ -89,6 +113,19 @@ form.searchform {
     column-gap: 20px;
     padding-left: 0;
     margin-top: 0;
+    li {
+      list-style: none;
+      a {
+        font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+        text-decoration: none;
+        font-size:20px;
+        line-height: 40px;
+        color:#3a70af;
+        &:hover {
+          text-decoration: none;
+        } 
+      }
+    }
   }
 
 }
