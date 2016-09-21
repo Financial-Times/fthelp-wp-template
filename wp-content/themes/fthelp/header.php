@@ -16,7 +16,7 @@
     <?php wp_head();?>
 </head>
 <body>
-
+<a name="top"></a>
   <header class="o-header o-header--simple" data-o-component="o-header" data-o-header--no-js="">
     <div class="o-header__row o-header__top">
       <div class="o-header__container">

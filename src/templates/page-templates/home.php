@@ -18,39 +18,31 @@ get_header(); ?>
 
           <div class="o-grid-container primary-action">
             <div class="o-grid-row">
-              <div data-o-grid-colspan="6 S12">
-                <div class="chat">
-                  <div>Welcome to Live FT Chat</div>
-                  <a href="#void" role="button" class="o-buttons o-buttons--big">Ask a Question</a>
-                </div>
+              <div data-o-grid-colspan="12 S12 M6">
+                <?php get_template_part( 'primary-action-chat' ); ?>
               </div>
-              <div data-o-grid-colspan="6 S12">
-                <div class="contact">
-                  <div>Contact our Customer Service</div>
-                  <a href="/help/contact-us/" role="button" class="o-buttons o-buttons--big">Contact Us</a>
-                </div>
+              <div data-o-grid-colspan="12 S12 M6">
+                <?php get_template_part( 'primary-action-contact' ); ?>
               </div>
             </div>
             <div class="o-grid-row">
-              <div data-o-grid-colspan="6 S12">
-                <div class="new-ft">
-                  <div>Check out the new FT</div>
-                  <a href="#void" role="button" class="o-buttons o-buttons--big">Take a Tour</a>
-                </div>
+              <div data-o-grid-colspan="12 S12 M6">
+                <?php get_template_part( 'primary-action-new-ft' ); ?>
               </div>
-              <div data-o-grid-colspan="6 S12">
-                <div class="old-ft">
-                  <div>Not a big fan of the new look & feel?</div>
-                  <a href="#void" role="button" class="o-buttons o-buttons--big">Return to the Old FT.com</a>
-                </div>
+              <div data-o-grid-colspan="12 S12 M6">
+                <?php get_template_part( 'primary-action-old-ft' ); ?>
               </div>
             </div>
           </div>
 
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <p><?php the_content(__('(more...)')); ?></p>
+            
+            <?php the_content(__('(more...)')); ?>
+
+            <a href="#top" class="back-to-top">Back to the Top</a>
+
           <?php endwhile; else: ?>
-            <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+            <?php _e('Sorry, no posts matched your criteria.'); ?>
           <?php endif; ?>
 
         </div>

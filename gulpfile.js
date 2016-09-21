@@ -5,9 +5,8 @@ var rename = require('gulp-rename');
 var obt = require('origami-build-tools');
 var buildFolder = './wp-content/themes/fthelp';
 var paths = {
-
   scss: ['./src/scss/style.scss'],
-  watch: ['./src/scss/**/*.scss', './src/templates/**/*.php', './src/images/**']
+  watch: ['./src/scss/**/*.scss', './src/templates/**/*.php', './src/images/**/*.*']
 }
 
 gulp.task('build', function(callback) {
@@ -50,3 +49,17 @@ gulp.task('verify', function() {
 gulp.task('watch', function () {
   gulp.watch(paths.watch, ['build']);
 });
+
+
+gulp.task('watch-wp-content', function () {
+  gulp.watch(['./wp-content/themes/**/*.*'], ['copy-wp-content']);
+});
+
+gulp.task('copy-wp-content', function () {
+  gulp.src('./wp-content/themes/**/*.*').pipe(gulp.dest('../fthelp-staging/wp-content/themes'));
+});
+
+// gulp.task('wp-local', function(callback) {
+//   runSequence('clean-build', 'build-css', 'copy-template', 'copy-images', 'deploy-theme', callback);
+// });
+

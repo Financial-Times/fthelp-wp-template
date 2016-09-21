@@ -34,11 +34,23 @@ get_header(); ?>
 
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-              <h1><?php the_title(); ?></h1>
+              <div class="o-grid-container primary-action">
+                <div class="o-grid-row">
+                  <div data-o-grid-colspan="12 S12 M6">
+                    <h1><?php the_title(); ?></h1>
+                  </div>
+                  <div data-o-grid-colspan="12 S12 M6">
+                    <?php get_template_part( 'primary-action-chat' ); ?>
+                  </div>
+                </div>
+              </div>
 
-              <p><?php the_content(__('(more...)')); ?></p>
+              <?php the_content(__('(more...)')); ?>
+
+              <a href="#top" class="back-to-top">Back to the Top</a>
+
             <?php endwhile; else: ?>
-              <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+              <?php _e('Sorry, no posts matched your criteria.'); ?>
             <?php endif; ?>
 
           </div>

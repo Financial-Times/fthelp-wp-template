@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Category Page
+ * Template Name: Contact Us
  *
  * @package WordPress
  * @subpackage ft_help
@@ -9,13 +9,12 @@
 
 get_header(); ?>
 
-    <div class="category-template">
+    <div class="contact-template">
 
       <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
         <div class="o-grid-container">
           <div class="o-grid-row">
             <div data-o-grid-colspan="12">
-
               <?php if(function_exists('bcn_display'))
               {
                   bcn_display();
@@ -32,6 +31,7 @@ get_header(); ?>
 
             <?php get_template_part( 'helpSearchForm' ); ?>
 
+
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
               <div class="o-grid-container primary-action">
@@ -45,17 +45,14 @@ get_header(); ?>
                 </div>
               </div>
 
-              <?php the_content(__('(more...)')); ?>
-
-              <a href="#top" class="back-to-top">Back to the Top</a>
-
+              <p><?php the_content(__('(more...)')); ?></p>
             <?php endwhile; else: ?>
-              <?php _e('Sorry, no posts matched your criteria.'); ?>
+              <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
             <?php endif; ?>
 
           </div>
         </div>
       </div>
     </div>
-  
-<?php get_footer();?>
+
+<?php get_footer(); ?>

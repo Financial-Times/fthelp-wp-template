@@ -4,7 +4,7 @@ $o-colors-is-silent: true;
 $o-fonts-is-silent: true;
 @import 'o-fonts/main';
 
-@include oFontsInclude(MetricWeb, semibold);
+@include oFontsInclude(MetricWeb, semibold, Financierdisplayweb);
 
 body {
   background-color: oColorsGetPaletteColor("pink");;
@@ -28,18 +28,35 @@ body {
   line-height:28px;
   font-size: 16px;
   text-transform: uppercase;
-
+  span {
+    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+    color: oColorsGetPaletteColor("org-b2c-dark");
+  }
   a {
+    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+    color: oColorsGetPaletteColor("org-b2c-dark");
     text-decoration: none;
     &:hover {
       text-decoration: underline;    
     }
+    span {
+      font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+      color: oColorsGetPaletteColor("org-b2c-dark");
+    }
   }
-
+  .separator {
+    background-image: url("images/link_caret.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0 8px;
+  }
 }
 
 form.searchform {
   margin-top: 20px;
+  .o-forms-suffix {
+    color: oColorsGetPaletteColor("teal-1");
+  }
   .o-icons-icon--search {
     width:28px;
     height: 17px;
@@ -52,6 +69,7 @@ form.searchform {
     padding: 0 0 30px 90px;
     margin-top: 30px;
     background-repeat: no-repeat;
+    background-position: 0% 30%;
 
     div {
       font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
@@ -88,6 +106,22 @@ form.searchform {
 
 }
 
+a.back-to-top {
+  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+  text-decoration: none;
+  font-size:20px;
+  line-height: 40px;
+  color:oColorsGetPaletteColor("org-b2c-dark");
+  float:right;
+  background-image: url("images/back-to-top-caret.png");
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  padding: 0 0 0 20px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 
 // ----------------------------------------------------------------------------------------------------------
 .home-template {
@@ -104,7 +138,7 @@ form.searchform {
   }
 
 
-  ul {
+  ul.help-topic {
     -moz-column-count: 2;
     -moz-column-gap: 20px;
     -webkit-column-count: 2;
@@ -113,6 +147,7 @@ form.searchform {
     column-gap: 20px;
     padding-left: 0;
     margin-top: 0;
+
     li {
       list-style: none;
       a {
@@ -120,12 +155,114 @@ form.searchform {
         text-decoration: none;
         font-size:20px;
         line-height: 40px;
-        color:#3a70af;
+        color:oColorsGetPaletteColor("org-b2c-dark");
         &:hover {
           text-decoration: none;
-        } 
+        }
+        span.caret {
+          background-image: url("images/link_caret.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          padding: 0 5px;
+        }
       }
     }
+  }
+
+  .top-answer {
+    margin-top: 5px;
+    width: 70%;
+
+    .page-list-ext-item {
+      margin:0 0 20px 0;
+
+      h3.page-list-ext-title {
+
+        font-family:oFontsGetFontFamilyWithFallbacks(MetricWeb);
+        font-size:20px;
+        color:oColorsGetPaletteColor("grey-tint5");
+        line-height:26px;
+        font-weight: bold;
+        margin-bottom: 0;
+        margin-top: 0;
+
+        a {
+          font-family:oFontsGetFontFamilyWithFallbacks(MetricWeb);
+          font-size:20px;
+          color:oColorsGetPaletteColor("grey-tint5");
+          line-height:26px;
+          text-decoration: none;
+        }
+      }
+    }
+    .page-list-ext-item-content {
+      font-family:oFontsGetFontFamilyWithFallbacks(Financierdisplayweb);
+      font-size:18px;
+      line-height:26px;
+      color:oColorsGetPaletteColor("grey-tint5");
+    }
+  }
+}
+
+.category-template, .contact-template {
+  .primary-action {
+    border-bottom: solid 1px #979797;
+
+    H1 {
+      font-family:oFontsGetFontFamilyWithFallbacks(MetricWeb);
+      font-size: 40px;
+      color: oColorsGetPaletteColor("grey-tint5");
+    }
+
+    .chat{
+      border: 0;
+    }
+
+  }
+
+  ul.category {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+    padding-left: 0;
+    margin-top: 30px;
+
+    li {
+      list-style: none;
+      a {
+        font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+        text-decoration: none;
+        font-size:26px;
+        color:oColorsGetPaletteColor("grey-tint5");
+      }
+      ul.children {
+        margin:0;
+        padding: 0;
+        li {
+          a {
+            font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+            text-decoration: none;
+            font-size:20px;
+            line-height: 40px;
+            color:oColorsGetPaletteColor("org-b2c-dark");
+            &:hover {
+              text-decoration: none;
+            }
+            span.caret {
+              background-image: url("images/link_caret.png");
+              background-repeat: no-repeat;
+              background-position: center;
+              padding: 0 5px;
+            }
+          }
+
+        }
+      }
+    }   
+
   }
 
 }
