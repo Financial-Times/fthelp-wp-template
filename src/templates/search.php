@@ -10,6 +10,7 @@
 get_header(); ?>
 
   <div class="search-template">
+
     <div class="o-grid-container">
       <div class="o-grid-row">
         <div data-o-grid-colspan="12">

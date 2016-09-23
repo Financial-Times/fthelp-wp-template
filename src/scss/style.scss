@@ -1,268 +1,512 @@
+$o-grid-is-silent: true;
+@import 'o-grid/main';
+
 $o-colors-is-silent: true;
 @import 'o-colors/main';
+
+$o-buttons-is-silent: true;
+@import 'o-buttons/main';
 
 $o-fonts-is-silent: true;
 @import 'o-fonts/main';
 
-@include oFontsInclude(MetricWeb, semibold, Financierdisplayweb);
+@include oFontsInclude(MetricWeb, $weight: semibold);
+@include oFontsInclude(FinancierDisplayWeb);
+
+@mixin MetricWebRegular() {
+  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+  font-weight: 400;
+}
+
+@mixin MetricWebSemiBold() {
+  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+  font-weight: 600;
+}
+
+@mixin content-text{
+  font-family:georgia;
+  font-size:18px;
+  line-height:26px;
+  color:oColorsGetPaletteColor("grey-tint5");
+}
+
 
 body {
-  background-color: oColorsGetPaletteColor("pink");;
+  @include MetricWebRegular();
+  background-color: oColorsGetPaletteColor("pink");
   margin: 0;
   padding: 0;
 }
 
-.header-sub-brand {
+@mixin layout-container (){
+  @include oGridContainer();
+  @include oGridRespondTo($from: M) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }    
+}
+
+
+.header-sub-brand-container {
+
   background-color: oColorsGetPaletteColor("org-b2c");
-  .o-typography-subhead {
-    color: oColorsGetPaletteColor("white");
-    margin:0;
-    line-height: 70px;
+
+  .header-sub-brand {
+    @include layout-container();
+    .o-typography-subhead {
+      color: oColorsGetPaletteColor("white");
+      margin:0;
+      @include oGridRespondTo($until: M) {
+        font-size: 18px;
+        line-height: 32px;
+      }    
+      @include oGridRespondTo($from: M) {
+        font-size: 40px;
+        line-height: 70px;
+      }    
+    }
   }
 }
 
-.breadcrumbs  {
+.breadcrumbs-container {
   background-color: oColorsGetPaletteColor("white");
   border-bottom:solid 1px grey;
-  color: oColorsGetPaletteColor("org-b2c-dark");
-  line-height:28px;
-  font-size: 16px;
-  text-transform: uppercase;
-  span {
-    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+
+  .breadcrumbs  {
+    @include layout-container();
+
     color: oColorsGetPaletteColor("org-b2c-dark");
-  }
-  a {
-    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-    color: oColorsGetPaletteColor("org-b2c-dark");
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;    
-    }
+    line-height:29px;
+    font-size: 14px;
+    text-transform: uppercase;
+
     span {
-      font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+      @include MetricWebSemiBold();
       color: oColorsGetPaletteColor("org-b2c-dark");
     }
-  }
-  .separator {
-    background-image: url("images/link_caret.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 0 8px;
+    a {
+      @include MetricWebSemiBold();
+      color: oColorsGetPaletteColor("org-b2c-dark");
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+      }
+      span {
+        @include MetricWebSemiBold();
+        color: oColorsGetPaletteColor("org-b2c-dark");
+      }
+    }
+    .separator {
+      background-image: url("images/link_caret.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 0 9px;
+    }
   }
 }
 
-form.searchform {
+
+.search-form {
+  @include layout-container();
   margin-top: 20px;
-  .o-forms-suffix {
-    color: oColorsGetPaletteColor("teal-1");
+
+  form.searchform {
+    .o-forms-group {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .o-forms-suffix {
+      background-color: oColorsGetPaletteColor("teal-1");
+    }
+    .o-icons-icon--search {
+      background-image: url("//image.webservices.ft.com/v1/images/raw/fticon:search?width=32&format=png&source=o-icons&tint=ffffff");
+      width:28px;
+      height: 17px;
+    }
   }
-  .o-icons-icon--search {
-    width:28px;
-    height: 17px;
-  }
+
 }
 
-.primary-action {
+.chat, .contact, .new-ft, .old-ft {
+  margin-top: 29px;
+  padding-bottom:29px;
+  padding-left: 105px;
+  background-position: 0% 30%;
+  background-repeat: no-repeat;
 
-  .chat, .contact, .new-ft, .old-ft {
-    padding: 0 0 30px 90px;
-    margin-top: 30px;
-    background-repeat: no-repeat;
-    background-position: 0% 30%;
+  div {
+    @include MetricWebSemiBold();
+    color: oColorsGetPaletteColor("grey-tint5");
+    font-size: 24px;
+    min-height: 56px;
+  }
+  .o-buttons {
+    background-color: oColorsGetPaletteColor("org-b2c");
+    border-color: oColorsGetPaletteColor("org-b2c");
+    color: oColorsGetPaletteColor("white");
+    @include oButtonsSize(big);
+  }
 
+  @include oGridRespondTo($until: M) {
+    margin-top: 19px;
+    padding-bottom:19px;
+    padding-left: 70px;
+    background-position: 0% 20%;
+    background-size: 50px 50px;
     div {
-      font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-      // font-weight: bold;
-      color: oColorsGetPaletteColor("grey-tint5");
-      font-size: 24px;
-      min-height: 56px;
-
+      font-size: 22px;
+      min-height: 32px;
     }
     .o-buttons {
-      background-color: oColorsGetPaletteColor("org-b2c");
-      border-color: oColorsGetPaletteColor("org-b2c");
-      color: oColorsGetPaletteColor("white");
+      @include oButtonsSize(medium);
+    }
+  }    
+}
+.chat {
+  background-image: url("images/primary-action/live-chat.png");
+}
+.contact {
+  background-image: url("images/primary-action/contact-us.png");
+}
+.new-ft {
+  background-image: url("images/primary-action/take-a-tour.png");
+}
+.old-ft {
+  background-image: url("images/primary-action/opt-out.png");
+}
+
+.content {
+  .back-to-top-container {
+    text-align: right;
+    border-top: none;
+    @include oGridRespondTo($until: M) {
+      text-align: center;
+    }
+
+    a.back-to-top {
+      font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+      text-decoration: none;
+      font-size:20px;
+      line-height: 40px;
+      color:oColorsGetPaletteColor("org-b2c-dark");
+
+      background-image: url("images/back-to-top-caret.png");
+      background-repeat: no-repeat;
+      background-position: 0% 50%;
+      padding: 0 0 0 20px;
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+      }
     }
   }
-
-  .chat, .contact {
-    border-bottom: solid 1px #979797;
-  }
-
-  .chat {
-    background-image: url("images/primary-action/live-chat.png");
-  }
-  .contact {
-    background-image: url("images/primary-action/contact-us.png");
-  }
-  .new-ft {
-    background-image: url("images/primary-action/take-a-tour.png");
-  }
-  .old-ft {
-    background-image: url("images/primary-action/opt-out.png");
-  }
-
-
 }
 
-a.back-to-top {
-  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-  text-decoration: none;
-  font-size:20px;
-  line-height: 40px;
-  color:oColorsGetPaletteColor("org-b2c-dark");
-  float:right;
-  background-image: url("images/back-to-top-caret.png");
+.list-caret {
+  background-image: url("images/link_caret.png");
   background-repeat: no-repeat;
-  background-position: 0% 50%;
-  padding: 0 0 0 20px;
-  &:hover {
-    text-decoration: none;
+  background-position: 50% 62%;
+  padding: 0 5px;
+}
+
+.list-li-caret {
+  li {
+    list-style: none;
+    a {
+      @include MetricWebSemiBold();
+      text-decoration: none;
+      font-size:20px;
+      line-height: 40px;
+      color:oColorsGetPaletteColor("org-b2c-dark");
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+      }
+      span.caret {
+        @extend .list-caret;
+      }
+    }
   }
 }
+
+.list-2-column {
+  @include oGridRespondTo($from: M) {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
 
 
 // ----------------------------------------------------------------------------------------------------------
 .home-template {
 
-  h2.o-typography-subhead--crosshead {
-    border-bottom: none;
-    border-top: 1px solid #979797;
-    font-size:26px;
-    line-height: 54px;
-    font-weight: normal;
-    color:#4a4a4a;
-    margin-top: 0;
-    margin-bottom: 0;
+  .primary-action {
+    @include layout-container();
+    > div {
+      @include oGridRow();
+      > div {
+        @include oGridColspan((default: 12, S:12, M: 6));
+      }
+    }
+
+    .chat, .contact {
+      border-bottom: solid 1px #979797;
+    }
+
+    @include oGridRespondTo($until: M) {
+      .chat {
+        margin-top: 0;
+      }
+      .old-ft {
+        display: none;
+      }
+    }
+    @include oGridRespondTo($from: M) {
+      .chat, .contact {
+        margin-top: 0;
+      }
+    }
   }
 
+  .content {
+    @include layout-container();
 
-  ul.help-topic {
-    -moz-column-count: 2;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 20px;
-    column-count: 2;
-    column-gap: 20px;
-    padding-left: 0;
-    margin-top: 0;
 
-    li {
-      list-style: none;
-      a {
-        font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-        text-decoration: none;
-        font-size:20px;
-        line-height: 40px;
-        color:oColorsGetPaletteColor("org-b2c-dark");
-        &:hover {
-          text-decoration: none;
-        }
-        span.caret {
-          background-image: url("images/link_caret.png");
-          background-repeat: no-repeat;
-          background-position: center;
-          padding: 0 5px;
-        }
-      }
+    h2.o-typography-subhead--crosshead {
+      @include MetricWebRegular();
+
+      border-bottom: none;
+      border-top: 1px solid #979797;
+      font-size:26px;
+      color:#4a4a4a;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 28px;
+    }
+
+    ul.help-topic {
+      @extend .list-2-column;
+      padding-left: 0;
+      margin-top: 0;
+
+      @extend .list-li-caret;
     }
   }
 
   .top-answer {
-    margin-top: 5px;
+    margin-top: 10px;
     width: 70%;
-
+    @include oGridRespondTo($until: M) {
+      width: 100%;
+    }
     .page-list-ext-item {
       margin:0 0 20px 0;
 
       h3.page-list-ext-title {
-
-        font-family:oFontsGetFontFamilyWithFallbacks(MetricWeb);
+        @include MetricWebSemiBold();
         font-size:20px;
         color:oColorsGetPaletteColor("grey-tint5");
         line-height:26px;
-        font-weight: bold;
         margin-bottom: 0;
         margin-top: 0;
 
         a {
-          font-family:oFontsGetFontFamilyWithFallbacks(MetricWeb);
+          @include MetricWebSemiBold();
           font-size:20px;
           color:oColorsGetPaletteColor("grey-tint5");
           line-height:26px;
           text-decoration: none;
+          &:hover {
+            text-decoration: none;
+            border-bottom: 1px dotted oColorsGetPaletteColor("grey-tint5");
+          }
         }
       }
     }
     .page-list-ext-item-content {
-      font-family:oFontsGetFontFamilyWithFallbacks(Financierdisplayweb);
-      font-size:18px;
-      line-height:26px;
-      color:oColorsGetPaletteColor("grey-tint5");
+      @include content-text();
+    }
+  }
+
+}
+
+// ----------------------------------------------------------------------------------------------------------
+
+.page-heading-container {
+
+  H1 {
+    @include MetricWebSemiBold();
+    color: oColorsGetPaletteColor("grey-tint5");
+    font-size: 40px;
+    margin: 0;
+    @include oGridRespondTo($until: M) {
+      font-size: 32px;
+    }
+
+  }
+  
+  .heading {
+    @include layout-container();
+    > div {
+      @include oGridRow();
+      div.title-container {
+        @include oGridColspan((default: hide, S:hide, M: 7));
+      }
+      div.chat-container {
+        @include oGridColspan((default: 12, S:12, M: 5));
+      }
+    }
+
+    .chat {
+      margin-top: 0;
+      @include oGridRespondTo($until: M) {
+        border-bottom: solid 1px #979797;
+      }
+    }
+  }
+  .heading-mobile  {
+    @include layout-container();
+    display: none;
+    @include oGridRespondTo($until: M) {
+      display: block;
+    }
+
+  }
+
+}
+
+.category-template, .subcategory-template, .content-template, .contact-template {
+
+  .content {
+    @include layout-container();
+    > div {
+      border-top: solid 1px #979797;
+      @include oGridRespondTo($until: M) {
+        border-top: none;
+      }
+    }
+    .back-to-top-container {
+      border-top: none;
     }
   }
 }
 
-.category-template, .contact-template {
-  .primary-action {
-    border-bottom: solid 1px #979797;
-
-    H1 {
-      font-family:oFontsGetFontFamilyWithFallbacks(MetricWeb);
-      font-size: 40px;
-      color: oColorsGetPaletteColor("grey-tint5");
-    }
-
-    .chat{
-      border: 0;
-    }
-
-  }
-
+.category-template {
   ul.category {
-    -moz-column-count: 2;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 20px;
-    column-count: 2;
-    column-gap: 20px;
+    @extend .list-2-column;
+
     padding-left: 0;
     margin-top: 30px;
 
     li {
       list-style: none;
       a {
-        font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+        @include MetricWebRegular();
+        color:oColorsGetPaletteColor("grey-tint5");
         text-decoration: none;
         font-size:26px;
-        color:oColorsGetPaletteColor("grey-tint5");
+        &:hover {
+          text-decoration: none;
+          border-bottom: 1px dotted oColorsGetPaletteColor("grey-tint5");
+        }
+        span.caret {
+          display: none;
+        }
       }
       ul.children {
-        margin:0;
+        margin:0 0 20px 0;
         padding: 0;
+        @extend .list-li-caret;
         li {
           a {
-            font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-            text-decoration: none;
-            font-size:20px;
-            line-height: 40px;
-            color:oColorsGetPaletteColor("org-b2c-dark");
-            &:hover {
-              text-decoration: none;
-            }
             span.caret {
-              background-image: url("images/link_caret.png");
-              background-repeat: no-repeat;
-              background-position: center;
-              padding: 0 5px;
+              display: inline;
             }
           }
-
         }
       }
     }   
+  }
+}
+
+.subcategory-template {
+  ul.category {
+    margin:30px 0 20px 0;
+    padding: 0;
+    @extend .list-li-caret;
+  }
+}
+
+.content-template, .contact-template {
+  .content {
+    @include content-text();
+    a {
+      text-decoration: none;
+      color:oColorsGetPaletteColor("teal-1");
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px dotted oColorsGetPaletteColor("teal-1");
+      }
+    }
+    h2.o-typography-subhead--crosshead {
+      @include MetricWebRegular();
+
+      border-bottom: none;
+      border-top: 1px solid #979797;
+      font-size:26px;
+      color:#4a4a4a;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 28px;
+    }
+
+    ul.related {
+      margin:20px 0 20px 0;
+      padding: 0;
+      @extend .list-li-caret;
+    }
+
+    .contact-list {
+      border: none;
+      @include layout-container();
+      padding: 0;
+      @include oGridRespondTo($from: S) {
+        padding: 0;
+      }
+
+      > div {
+        @include oGridRow();
+        > div {
+          @include oGridColspan((default: 12, S:12, M: 6));
+        }
+      }
+      h2 {
+        @include MetricWebSemiBold();
+        font-size: 18px;
+      }
+      .tel-desktop {
+        display: inline-block;
+      }
+      .tel-mobile {
+        display: none;
+      }
+      @include oGridRespondTo($until: M) {
+        .tel-desktop {
+          display: none;
+        }
+        .tel-mobile {
+          display: inline-block;
+        }
+      }
+
+    }
 
   }
-
 }
+

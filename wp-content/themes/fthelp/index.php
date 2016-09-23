@@ -9,40 +9,32 @@
 
 get_header(); ?>
 
+    <?php get_template_part( 'breadcrumbs' ); ?>
+
     <div class="content-template">
 
-      <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-        <div class="o-grid-container">
-          <div class="o-grid-row">
-            <div data-o-grid-colspan="12">
-              <?php if(function_exists('bcn_display'))
-              {
-                  bcn_display();
-              }?>
-            </div>
-          </div>
+      <?php get_template_part( 'helpSearchForm' ); ?>
+
+      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    
+        <?php get_template_part( 'page-heading-container' ); ?>
+
+        <div class="content">
+          <div></div>
+          <?php the_content(__('(more...)')); ?>
+  
+          <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
+
+          <?php echo do_shortcode('[siblings exclude="current" sort_column="menu_order" class="related" link_after=" <span class=\'caret\'>&nbsp;</span>" number="5"]') ?>
+
+          <?php get_template_part( 'back-to-top' ); ?>
+
         </div>
-      </div>
 
-      <div class="o-grid-container">
-        <div class="o-grid-row">
-          <div data-o-grid-colspan="12">
+      <?php endwhile; else: ?>
+        <?php _e('Sorry, no pages matched your criteria.'); ?>
+      <?php endif; ?>
 
-
-            <?php get_template_part( 'helpSearchForm' ); ?>
-
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-              <h1><?php the_title(); ?></h1>
-
-              <?php the_content(__('(more...)')); ?>
-            <?php endwhile; else: ?>
-              <?php _e('Sorry, no posts matched your criteria.'); ?>
-            <?php endif; ?>
-
-          </div>
-        </div>
-      </div>
     </div>
 
 <?php get_footer(); ?>

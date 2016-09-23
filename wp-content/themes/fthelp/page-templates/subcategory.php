@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Category Page
+ * Template Name: Sub Category Page
  *
  * @package WordPress
  * @subpackage ft_help
@@ -11,7 +11,7 @@ get_header(); ?>
 
     <?php get_template_part( 'breadcrumbs' ); ?>
 
-    <div class="category-template">
+    <div class="subcategory-template">
 
       <?php get_template_part( 'helpSearchForm' ); ?>
 
