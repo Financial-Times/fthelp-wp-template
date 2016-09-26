@@ -1,4 +1,4 @@
 <div class="old-ft">
-  <div>FT.com is changing</div>
-  <a href="//www.ft.com/opt-out-confirm?location=help" role="button" class="o-buttons">Return to the Old FT.com</a>
+  <div>Return to the Old FT.com</div>
+  <a href="//www.ft.com/opt-out-confirm?location=help" role="button" class="o-buttons o-buttons--b2c">Go Back</a>
 </div>

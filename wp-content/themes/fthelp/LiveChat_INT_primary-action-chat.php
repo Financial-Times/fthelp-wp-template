@@ -1,12 +1,12 @@
 <!-- INT -->
 <div class="chat" id="liveagent_button_online_573260000008OSe">
   <div>Welcome to Live FT Chat</div>
-  <a href="javascript:liveagent.startChat('573260000008OSe');void(0);" role="button" class="o-buttons">Start Chat</a>
+  <a href="javascript:liveagent.startChat('573260000008OSe');void(0);" role="button" class="o-buttons o-buttons--b2c">Start Chat</a>
 </div>
 
 <div class="chat" id="liveagent_button_offline_573260000008OSe">
-  <div>Chat offline</div>
-  <a href="#void" role="button" class="o-buttons" disabled="disabled">Chat offline</a>
+  <div>Welcome to Live FT Chat</div>
+  <a href="#void" role="button" class="o-buttons o-buttons--b2c" disabled="disabled">Currently Offline</a>
 </div>
 
 

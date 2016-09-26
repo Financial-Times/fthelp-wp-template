@@ -19,15 +19,24 @@ get_header(); ?>
           <?php get_template_part( 'primary-action-chat' ); ?>
         </div>
         <div>
-          <?php get_template_part( 'primary-action-contact' ); ?>
+          <div class="contact">
+            <div>Contact our Customer Service</div>
+            <a href="<?php echo site_url('/help/contact-us/'); ?>" role="button" class="o-buttons o-buttons--b2c">Contact Us</a>
+          </div>
         </div>
       </div>
       <div>
         <div>
-          <?php get_template_part( 'primary-action-new-ft' ); ?>
+          <div class="new-ft">
+            <div>Check out the new FT</div>
+            <a href="//www.ft.com/tour" role="button" class="o-buttons o-buttons--b2c">View Tips</a>
+          </div>
         </div>
         <div>
-          <?php get_template_part( 'primary-action-old-ft' ); ?>
+          <div class="old-ft">
+            <div>Return to the Old FT.com</div>
+            <a href="//www.ft.com/opt-out-confirm?location=help" role="button" class="o-buttons o-buttons--b2c">Go Back</a>
+          </div>
         </div>
       </div>
     </div>
@@ -38,13 +47,13 @@ get_header(); ?>
         
         <?php the_content(__('(more...)')); ?>
 
-        <?php get_template_part( 'back-to-top' ); ?>
-
       <?php endwhile; else: ?>
         <?php _e('Sorry, no posts matched your criteria.'); ?>
       <?php endif; ?>
       
     </div>
+
+    <?php get_template_part( 'back-to-top' ); ?>
 
   </div>
   

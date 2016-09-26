@@ -20,12 +20,11 @@ get_header(); ?>
         <?php get_template_part( 'page-heading-container' ); ?>
 
         <div class="content">
-          <div></div>
+          <hr/>
           <?php the_content(__('(more...)')); ?>
-
-          <?php get_template_part( 'back-to-top' ); ?>
-
         </div>
+
+        <?php get_template_part( 'back-to-top' ); ?>
 
       <?php endwhile; else: ?>
         <?php _e('Sorry, no pages matched your criteria.'); ?>

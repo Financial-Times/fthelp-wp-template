@@ -25,6 +25,7 @@
     "o-footer": "^5.0.3",
     "o-typography": "^4.3.1",
     "o-forms": "^2.0.5",
-    "o-icons": "^4.2.2"
+    "o-icons": "^4.2.2",
+    "o-buttons": "^4.4.0"
   }
 }

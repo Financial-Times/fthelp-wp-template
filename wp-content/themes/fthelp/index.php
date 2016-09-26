@@ -25,11 +25,11 @@ get_header(); ?>
   
           <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
 
-          <?php echo do_shortcode('[siblings exclude="current" sort_column="menu_order" class="related" link_after=" <span class=\'caret\'>&nbsp;</span>" number="5"]') ?>
-
-          <?php get_template_part( 'back-to-top' ); ?>
+          <?php echo do_shortcode('[siblings exclude="current" sort_column="menu_order" class="related" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
 
         </div>
+        
+        <?php get_template_part( 'back-to-top' ); ?>
 
       <?php endwhile; else: ?>
         <?php _e('Sorry, no pages matched your criteria.'); ?>

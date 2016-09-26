@@ -7,6 +7,9 @@ $o-colors-is-silent: true;
 $o-buttons-is-silent: true;
 @import 'o-buttons/main';
 
+$o-typography-is-silent: true;
+@import 'o-typography/main';
+
 $o-fonts-is-silent: true;
 @import 'o-fonts/main';
 
@@ -40,6 +43,10 @@ body {
 
 @mixin layout-container (){
   @include oGridContainer();
+  @include oGridRespondTo($until: M) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }    
   @include oGridRespondTo($from: M) {
     padding-left: 30px;
     padding-right: 30px;
@@ -49,7 +56,7 @@ body {
 
 .header-sub-brand-container {
 
-  background-color: oColorsGetPaletteColor("org-b2c");
+  background-color: oColorsGetPaletteColor("org-b2c-dark");
 
   .header-sub-brand {
     @include layout-container();
@@ -98,9 +105,9 @@ body {
       }
     }
     .separator {
-      background-image: url("images/link_caret.png");
-      background-repeat: no-repeat;
-      background-position: center;
+      @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('org-b2c-dark'), 10);
+      display: inline;
+      background-size: 11px;
       padding: 0 9px;
     }
   }
@@ -117,10 +124,10 @@ body {
       padding-right: 0;
     }
     .o-forms-suffix {
-      background-color: oColorsGetPaletteColor("teal-1");
+      background-color: oColorsGetPaletteColor("org-b2c-dark");
     }
     .o-icons-icon--search {
-      background-image: url("//image.webservices.ft.com/v1/images/raw/fticon:search?width=32&format=png&source=o-icons&tint=ffffff");
+      @include oIconsGetIcon('search', oColorsGetPaletteColor('white'), 32);
       width:28px;
       height: 17px;
     }
@@ -142,9 +149,6 @@ body {
     min-height: 56px;
   }
   .o-buttons {
-    background-color: oColorsGetPaletteColor("org-b2c");
-    border-color: oColorsGetPaletteColor("org-b2c");
-    color: oColorsGetPaletteColor("white");
     @include oButtonsSize(big);
   }
 
@@ -176,49 +180,52 @@ body {
   background-image: url("images/primary-action/opt-out.png");
 }
 
-.content {
-  .back-to-top-container {
-    text-align: right;
-    border-top: none;
-    @include oGridRespondTo($until: M) {
-      text-align: center;
-    }
+.back-to-top-container {
+  @include layout-container();
+  text-align: right;
+  border-top: none;
+  @include oGridRespondTo($until: M) {
+    text-align: center;
+  }
 
-    a.back-to-top {
-      font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+  a.back-to-top {
+    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+    text-decoration: none;
+    font-size:20px;
+    line-height: 40px;
+    color:oColorsGetPaletteColor("org-b2c-dark");
+    &:hover {
       text-decoration: none;
-      font-size:20px;
-      line-height: 40px;
-      color:oColorsGetPaletteColor("org-b2c-dark");
-
-      background-image: url("images/back-to-top-caret.png");
-      background-repeat: no-repeat;
-      background-position: 0% 50%;
-      padding: 0 0 0 20px;
-      &:hover {
-        text-decoration: none;
-        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
-      }
+      border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+    }
+    i {
+      @include oIconsGetIcon('arrow-up', oColorsGetPaletteColor('org-b2c-dark'), 14);
+      padding: 0 5px;
     }
   }
 }
 
 .list-caret {
-  background-image: url("images/link_caret.png");
-  background-repeat: no-repeat;
-  background-position: 50% 62%;
+  @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('org-b2c-dark'), 20);
+  display: inline;
+  background-size: 14px;  
   padding: 0 5px;
 }
 
 .list-li-caret {
   li {
     list-style: none;
+    padding: 12px 0;
     a {
       @include MetricWebSemiBold();
+      display: inline-block;
+      padding:0;
       text-decoration: none;
+      text-transform: none;
       font-size:20px;
-      line-height: 40px;
+      line-height: 26px;
       color:oColorsGetPaletteColor("org-b2c-dark");
+      border-bottom: 1px dotted oColorsGetPaletteColor("pink");
       &:hover {
         text-decoration: none;
         border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
@@ -347,6 +354,7 @@ body {
     margin: 0;
     @include oGridRespondTo($until: M) {
       font-size: 32px;
+      margin-top: 25px;
     }
 
   }
@@ -365,6 +373,7 @@ body {
 
     .chat {
       margin-top: 0;
+      padding-bottom: 16px;
       @include oGridRespondTo($until: M) {
         border-bottom: solid 1px #979797;
       }
@@ -381,11 +390,14 @@ body {
 
 }
 
-.category-template, .subcategory-template, .content-template, .contact-template {
+.category-template, .subcategory-template, .content-template, .contact-template, .search-template {
 
   .content {
     @include layout-container();
-    > div {
+    hr {
+      padding:0;
+      margin:0;
+      border:none;
       border-top: solid 1px #979797;
       @include oGridRespondTo($until: M) {
         border-top: none;
@@ -402,42 +414,46 @@ body {
     @extend .list-2-column;
 
     padding-left: 0;
-    margin-top: 30px;
+    margin-top: 22px;
+    @include oGridRespondTo($until: M) {
+      margin-top: 16px;
+    }
 
     li {
-      list-style: none;
+      list-style: none;      
       a {
         @include MetricWebRegular();
         color:oColorsGetPaletteColor("grey-tint5");
         text-decoration: none;
         font-size:26px;
+        border-bottom: 1px dotted oColorsGetPaletteColor("pink");
         &:hover {
           text-decoration: none;
           border-bottom: 1px dotted oColorsGetPaletteColor("grey-tint5");
-        }
-        span.caret {
-          display: none;
         }
       }
       ul.children {
         margin:0 0 20px 0;
         padding: 0;
         @extend .list-li-caret;
-        li {
-          a {
-            span.caret {
-              display: inline;
-            }
-          }
+      }
+    }
+
+    li.page_item_has_children {
+      a {
+        text-transform: uppercase;
+        span.caret {
+          display: none;
         }
       }
-    }   
+    }
+
   }
 }
 
 .subcategory-template {
   ul.category {
-    margin:30px 0 20px 0;
+    margin:20px 0 20px 0;
     padding: 0;
     @extend .list-li-caret;
   }
@@ -447,12 +463,7 @@ body {
   .content {
     @include content-text();
     a {
-      text-decoration: none;
-      color:oColorsGetPaletteColor("teal-1");
-      &:hover {
-        text-decoration: none;
-        border-bottom: 1px dotted oColorsGetPaletteColor("teal-1");
-      }
+      @include oTypographyLink;
     }
     h2.o-typography-subhead--crosshead {
       @include MetricWebRegular();
@@ -486,6 +497,14 @@ body {
           @include oGridColspan((default: 12, S:12, M: 6));
         }
       }
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          list-style: none;
+          padding: 8px 0;
+        }
+      }
       h2 {
         @include MetricWebSemiBold();
         font-size: 18px;
@@ -504,9 +523,107 @@ body {
           display: inline-block;
         }
       }
-
     }
-
   }
 }
 
+.contact-template {
+  .feedback-banner {
+    @include layout-container();
+    > div {
+      @include layout-container();
+      padding: 0 !important;
+      background:#f9d9d2;
+      > div {
+        @include oGridRow();
+        background:#f9d9d2;
+        padding: 0;
+        div.msg {
+          @include oGridColspan((default: 12, S:12, M: 8));
+        }
+        div.action {
+          @include oGridColspan((default: 12, S:12, M: 4));
+        }
+      }
+    }
+    div.msg, div.action {
+      padding: 10px !important;
+      @include oGridRespondTo($until: M) {
+        padding: 10px !important;
+        padding-top: 0 !important;
+      }
+    }
+    div.msg {
+      h4, p {
+        padding: 0;
+        margin: 0;
+      }
+      h4 {
+        @include MetricWebSemiBold();
+        color: oColorsGetPaletteColor("grey-tint5");
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      p {
+        @include MetricWebRegular();
+        line-height: 24px;
+        font-size: 18px;
+      }
+      @include oGridRespondTo($until: M) {
+        padding: 10px !important;
+      }
+    }
+    div.action {
+      text-align: right;
+      a {
+
+      }
+      @include oGridRespondTo($until: M) {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.search-template {
+  .content {
+    .content-wrap {
+      width: 70%;
+      @include oGridRespondTo($until: M) {
+        width:100%;
+      }
+    }    
+    color:oColorsGetPaletteColor("grey-tint5");
+    h2 {
+      @include MetricWebSemiBold();
+      font-size: 20px;
+      margin-bottom: 5px;
+      margin-top: 25px;
+
+      @include oGridRespondTo($until: M) {
+        font-size: 18px;
+      }
+      a {
+        @include MetricWebSemiBold();
+        color:oColorsGetPaletteColor("grey-tint5");
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          border-bottom: 1px dotted oColorsGetPaletteColor("grey-tint5");
+        }
+      }
+    }
+    p {
+      font-family: Georgia;
+      line-height: 24px;
+    }
+    .icon {
+      text-align: center;
+      background-image: url("images/search.png");
+      background-repeat: no-repeat;
+      background-position: top center;
+      margin-top: 25px;
+      padding-top: 100px;
+    }
+  }
+}

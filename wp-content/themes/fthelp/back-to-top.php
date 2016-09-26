@@ -1,3 +1,3 @@
 <div class="back-to-top-container">
-  <a href="#top" class="back-to-top">Back to the Top</a>
+  <a href="#top" class="back-to-top"><i class="o-icons-icon o-icons-icon--arrow-up"></i>Back to the Top</a>
 </div>

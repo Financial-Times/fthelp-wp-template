@@ -1,1 +1,1 @@
-<?php get_template_part( 'LiveChat_INT_primary-action-chat' ); ?>
+<?php get_template_part( 'LiveChat_PROD_primary-action-chat' ); ?>
