@@ -9,7 +9,7 @@
     <script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=customevent,default"></script>    
     
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url');?>">
-    <link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-header@6.5.1,o-fonts@^2.0.0,o-grid@^4.2.1,o-footer@^5.0.3,o-typography@^4.3.1,o-forms@^2.0.5,o-icons@^4.2.2,o-buttons@4.4.0">
+    <link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-header@^6.5.1,o-fonts@^2.0.0,o-grid@^4.2.1,o-footer@^5.0.3,o-typography@^4.3.1,o-forms@^2.0.5,o-icons@^4.2.2,o-buttons@^4.4.0">
 
     <script type="text/javascript" src="<?php bloginfo('template_url');?>"></script>
 

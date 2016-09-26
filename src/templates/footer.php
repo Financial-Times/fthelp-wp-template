@@ -135,7 +135,7 @@
     </footer>
 
 
-  <script src="//origami-build.ft.com/v2/bundles/js?modules=o-footer@5.0.3,o-header@6.5.1,o-fonts@^2.0.0,o-icons@^4.2.2,o-buttons@^4.0.2"></script>
+  <script src="//origami-build.ft.com/v2/bundles/js?modules=o-footer@^5.0.3,o-header@^6.5.1,o-fonts@^2.0.0,o-icons@^4.2.2,o-buttons@^4.0.2"></script>
   <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 
   <?php wp_footer(); ?>

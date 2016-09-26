@@ -25,7 +25,7 @@ get_header(); ?>
   
           <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
 
-          <?php echo do_shortcode('[siblings exclude="current" sort_column="menu_order" class="related" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
+          <?php echo do_shortcode('[siblings depth="1" exclude="current" sort_column="menu_order" class="related" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
 
         </div>
         
