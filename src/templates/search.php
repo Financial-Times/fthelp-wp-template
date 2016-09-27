@@ -8,6 +8,7 @@
  */
 
 get_header(); ?>
+<div class="search-template-container">
 
   <?php get_template_part( 'breadcrumbs' ); ?>
 
@@ -33,7 +34,7 @@ get_header(); ?>
     <div class="content">
       <hr/>
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-          <div class="content-wrap">
+          <div class="content-wrapper">
             <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );?>
             <p><?php the_excerpt(); ?></p> 
           </div>
@@ -49,5 +50,5 @@ get_header(); ?>
 
     </div>
   </div>
-
+</div>
 <?php get_footer(); ?>

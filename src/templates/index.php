@@ -8,7 +8,8 @@
  */
 
 get_header(); ?>
-
+  <div class="content-template-container">
+      
     <?php get_template_part( 'breadcrumbs' ); ?>
 
     <div class="content-template">
@@ -20,8 +21,10 @@ get_header(); ?>
         <?php get_template_part( 'page-heading-container' ); ?>
 
         <div class="content">
-          <div></div>
-          <?php the_content(__('(more...)')); ?>
+
+          <div class="content-wrapper">
+            <?php the_content(__('(more...)')); ?>
+          </div>
   
           <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
 
@@ -36,5 +39,6 @@ get_header(); ?>
       <?php endif; ?>
 
     </div>
+  </div>
 
 <?php get_footer(); ?>

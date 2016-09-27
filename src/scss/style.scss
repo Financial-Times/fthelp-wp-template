@@ -90,6 +90,9 @@ body {
     span {
       @include MetricWebSemiBold();
       color: oColorsGetPaletteColor("org-b2c-dark");
+      &:nth-last-child(2) {
+        display: none;
+      }
     }
     a {
       @include MetricWebSemiBold();
@@ -107,32 +110,50 @@ body {
     .separator {
       @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('org-b2c-dark'), 10);
       display: inline;
-      background-size: 11px;
+      background-size: 15px;
       padding: 0 9px;
+      &:nth-last-child(-n+3) {
+        display: none;
+      }
+
     }
   }
 }
 
+.search-template-container {
+  .breadcrumbs-container {
+    .breadcrumbs {
+      span {
+        // display: none;
+        &.root {
+          // display:inline-block;
+        }
+      }
+    }    
+  }
+}
 
 .search-form {
   @include layout-container();
   margin-top: 20px;
-
   form.searchform {
-    .o-forms-group {
+    .o-forms {
       padding-left: 0;
       padding-right: 0;
+      max-width: inherit;
     }
-    .o-forms-suffix {
-      background-color: oColorsGetPaletteColor("org-b2c-dark");
+    .o-forms__text {
+      max-width: inherit;
     }
-    .o-icons-icon--search {
-      @include oIconsGetIcon('search', oColorsGetPaletteColor('white'), 32);
-      width:28px;
-      height: 17px;
+    .o-buttons {
+      padding: 0;
+      .o-icons-icon--search {
+        @include oIconsGetIcon('search', oColorsGetPaletteColor('white'), 32);
+        width:38px;
+        height: 34px;
+      }
     }
   }
-
 }
 
 .chat, .contact, .new-ft, .old-ft {
@@ -208,7 +229,7 @@ body {
 .list-caret {
   @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('org-b2c-dark'), 20);
   display: inline;
-  background-size: 14px;  
+  background-size: 20px;  
   padding: 0 5px;
 }
 
@@ -527,6 +548,15 @@ body {
   }
 }
 
+.content-template, .search-template, .contact-template {
+  .content-wrapper {
+    width: 70%;
+    @include oGridRespondTo($until: M) {
+      width:100%;
+    }
+  }
+}
+
 .contact-template {
   .feedback-banner {
     @include layout-container();
@@ -587,12 +617,6 @@ body {
 
 .search-template {
   .content {
-    .content-wrap {
-      width: 70%;
-      @include oGridRespondTo($until: M) {
-        width:100%;
-      }
-    }    
     color:oColorsGetPaletteColor("grey-tint5");
     h2 {
       @include MetricWebSemiBold();
@@ -605,11 +629,12 @@ body {
       }
       a {
         @include MetricWebSemiBold();
-        color:oColorsGetPaletteColor("grey-tint5");
+        color:oColorsGetPaletteColor("org-b2c-dark");
         text-decoration: none;
-        &:hover {
+        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+      &:hover {
           text-decoration: none;
-          border-bottom: 1px dotted oColorsGetPaletteColor("grey-tint5");
+          border-bottom: none;
         }
       }
     }
