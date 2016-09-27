@@ -11,7 +11,7 @@
               </h6>
               <div class="o-footer__matrix-content" id="o-footer-section-0">
                   <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.ft.com/help">Help</a>
+                      <a class="o-footer__matrix-link" href="//help.ft.com">Help</a>
                       <a class="o-footer__matrix-link" href="//www.ft.com/aboutus">About Us</a>
                   </div>
               </div>
@@ -22,10 +22,10 @@
               </h6>
               <div class="o-footer__matrix-content" id="o-footer-section-1">
                   <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.ft.com/servicestools/help/terms">Terms &amp; Conditions</a>
-                      <a class="o-footer__matrix-link" href="//www.ft.com/servicestools/help/privacy">Privacy</a>
-                      <a class="o-footer__matrix-link" href="//www.ft.com/cookiepolicy">Cookies</a>
-                      <a class="o-footer__matrix-link" href="//www.ft.com/servicestools/help/copyright">Copyright</a>
+                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/terms-conditions/">Terms &amp; Conditions</a>
+                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
                   </div>
               </div>
             </div>

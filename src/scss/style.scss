@@ -347,12 +347,12 @@ body {
         a {
           @include MetricWebSemiBold();
           font-size:20px;
-          color:oColorsGetPaletteColor("grey-tint5");
+          color:oColorsGetPaletteColor("org-b2c-dark");
           line-height:26px;
           text-decoration: none;
           &:hover {
             text-decoration: none;
-            border-bottom: 1px dotted oColorsGetPaletteColor("grey-tint5");
+            border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
           }
         }
       }
