@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Category Page
+ * Template Name: Legal Page
  *
  * @package WordPress
  * @subpackage ft_help
@@ -8,8 +8,11 @@
  */
 
 get_header(); ?>
+  <div class="content-template-container">
+      
+    <?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-    <div class="category-template">
+    <div class="content-template">
 
       <?php get_template_part( 'partials/search-form' ); ?>
 
@@ -18,10 +21,13 @@ get_header(); ?>
         <?php get_template_part( 'partials/page-heading-container' ); ?>
 
         <div class="content">
-          <hr/>
-          <?php the_content(__('(more...)')); ?>
-        </div>
 
+          <div class="content-wrapper">
+            <?php the_content(__('(more...)')); ?>
+          </div>
+  
+        </div>
+        
         <?php get_template_part( 'partials/back-to-top' ); ?>
 
       <?php endwhile; else: ?>
@@ -29,5 +35,6 @@ get_header(); ?>
       <?php endif; ?>
 
     </div>
-  
-<?php get_footer();?>
+  </div>
+
+<?php get_footer(); ?>

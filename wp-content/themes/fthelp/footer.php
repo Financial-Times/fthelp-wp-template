@@ -26,6 +26,7 @@
                       <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/privacy/">Privacy</a>
                       <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/cookies/">Cookies</a>
                       <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+
                   </div>
               </div>
             </div>
@@ -134,9 +135,6 @@
       </div>
     </footer>
 
-
-  <script src="//origami-build.ft.com/v2/bundles/js?modules=o-footer@^5.0.3,o-header@^6.5.1,o-fonts@^2.0.0,o-icons@^5.0.0,o-buttons@^4.0.2"></script>
-  <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 
   <?php wp_footer(); ?>
   

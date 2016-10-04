@@ -61,15 +61,23 @@ body {
   .header-sub-brand {
     @include layout-container();
     .o-typography-subhead {
-      color: oColorsGetPaletteColor("white");
+      a {
+        color: oColorsGetPaletteColor("white");
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+
+      }
       margin:0;
+
       @include oGridRespondTo($until: M) {
         font-size: 18px;
-        line-height: 32px;
+        line-height: 55px;
       }    
       @include oGridRespondTo($from: M) {
         font-size: 40px;
-        line-height: 70px;
+        line-height: 80px;
       }    
     }
   }
@@ -144,6 +152,7 @@ body {
     }
     .o-forms__text {
       max-width: inherit;
+      font-size: 18px;
     }
     .o-buttons {
       padding: 0;
@@ -182,6 +191,7 @@ body {
     div {
       font-size: 22px;
       min-height: 32px;
+      padding-bottom: 5px;
     }
     .o-buttons {
       @include oButtonsSize(medium);
@@ -203,7 +213,6 @@ body {
 
 .back-to-top-container {
   @include layout-container();
-  text-align: right;
   border-top: none;
   @include oGridRespondTo($until: M) {
     text-align: center;
@@ -272,97 +281,8 @@ body {
 
 
 // ----------------------------------------------------------------------------------------------------------
-.home-template {
 
-  .primary-action {
-    @include layout-container();
-    > div {
-      @include oGridRow();
-      > div {
-        @include oGridColspan((default: 12, S:12, M: 6));
-      }
-    }
-
-    .chat, .contact {
-      border-bottom: solid 1px #979797;
-    }
-
-    @include oGridRespondTo($until: M) {
-      .chat {
-        margin-top: 0;
-      }
-      .old-ft {
-        display: none;
-      }
-    }
-    @include oGridRespondTo($from: M) {
-      .chat, .contact {
-        margin-top: 0;
-      }
-    }
-  }
-
-  .content {
-    @include layout-container();
-
-
-    h2.o-typography-subhead--crosshead {
-      @include MetricWebRegular();
-
-      border-bottom: none;
-      border-top: 1px solid #979797;
-      font-size:26px;
-      color:#4a4a4a;
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-top: 28px;
-    }
-
-    ul.help-topic {
-      @extend .list-2-column;
-      padding-left: 0;
-      margin-top: 0;
-
-      @extend .list-li-caret;
-    }
-  }
-
-  .top-answer {
-    margin-top: 10px;
-    width: 70%;
-    @include oGridRespondTo($until: M) {
-      width: 100%;
-    }
-    .page-list-ext-item {
-      margin:0 0 20px 0;
-
-      h3.page-list-ext-title {
-        @include MetricWebSemiBold();
-        font-size:20px;
-        color:oColorsGetPaletteColor("grey-tint5");
-        line-height:26px;
-        margin-bottom: 0;
-        margin-top: 0;
-
-        a {
-          @include MetricWebSemiBold();
-          font-size:20px;
-          color:oColorsGetPaletteColor("org-b2c-dark");
-          line-height:26px;
-          text-decoration: none;
-          &:hover {
-            text-decoration: none;
-            border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
-          }
-        }
-      }
-    }
-    .page-list-ext-item-content {
-      @include content-text();
-    }
-  }
-
-}
+@import './home';
 
 // ----------------------------------------------------------------------------------------------------------
 
@@ -385,10 +305,10 @@ body {
     > div {
       @include oGridRow();
       div.title-container {
-        @include oGridColspan((default: hide, S:hide, M: 7));
+        @include oGridColspan((default: hide, S:hide, M: 8));
       }
       div.chat-container {
-        @include oGridColspan((default: 12, S:12, M: 5));
+        @include oGridColspan((default: 12, S:12, M: 4));
       }
     }
 
@@ -411,10 +331,39 @@ body {
 
 }
 
+.content-template {
+  .page-heading-container {
+    H1 {
+      font-size: 20px;
+    }
+    .content-wrapper {
+      @include content-text();
+      a {
+        @include oTypographyLink;
+      }
+    }
+  }    
+}
+
+.category-template, .subcategory-template, .contact-template{
+  .heading {
+    > div{
+      div.title-container {
+        @include oGridColspan((default: hide, S:hide, M: 6));
+      }
+      div.chat-container {
+        @include oGridColspan((default: 12, S:12, M: 6));
+      }
+    } 
+  }
+}
+
 .category-template, .subcategory-template, .content-template, .contact-template, .search-template {
 
   .content {
+
     @include layout-container();
+
     hr {
       padding:0;
       margin:0;
@@ -498,7 +447,7 @@ body {
       padding-top: 28px;
     }
 
-    ul.related {
+    ul.related-question {
       margin:20px 0 20px 0;
       padding: 0;
       @extend .list-li-caret;
@@ -548,18 +497,10 @@ body {
   }
 }
 
-.content-template, .search-template, .contact-template {
-  .content-wrapper {
-    width: 70%;
-    @include oGridRespondTo($until: M) {
-      width:100%;
-    }
-  }
-}
-
 .contact-template {
   .feedback-banner {
     @include layout-container();
+    margin-top: 30px;
     > div {
       @include layout-container();
       padding: 0 !important;
@@ -606,8 +547,10 @@ body {
     div.action {
       text-align: right;
       a {
-
+        margin-top: 10px;
+        margin-right: 10px;
       }
+
       @include oGridRespondTo($until: M) {
         text-align: left;
       }
@@ -616,7 +559,7 @@ body {
 }
 
 .search-template {
-  .content {
+  .content-wrapper {
     color:oColorsGetPaletteColor("grey-tint5");
     h2 {
       @include MetricWebSemiBold();
@@ -639,9 +582,11 @@ body {
       }
     }
     p {
-      font-family: Georgia;
-      line-height: 24px;
+      @include content-text();
     }
+  }
+  .no-result {
+    @include layout-container();
     .icon {
       text-align: center;
       background-image: url("images/search.png");
@@ -649,6 +594,18 @@ body {
       background-position: top center;
       margin-top: 25px;
       padding-top: 100px;
+      H1 {
+       @include MetricWebSemiBold();
+        font-size: 40px;
+        margin-bottom: 0;
+        @include oGridRespondTo($until: M) {
+          font-size: 32px;
+        }
+      }
+      H2 {
+        margin-top: 15px;
+
+      }
     }
   }
 }

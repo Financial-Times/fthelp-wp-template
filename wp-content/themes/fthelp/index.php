@@ -8,37 +8,52 @@
  */
 
 get_header(); ?>
-  <div class="content-template-container">
       
-    <?php get_template_part( 'breadcrumbs' ); ?>
+  <?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-    <div class="content-template">
+  <div class="content-template">
 
-      <?php get_template_part( 'helpSearchForm' ); ?>
+    <?php get_template_part( 'partials/search-form' ); ?>
 
-      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    
-        <?php get_template_part( 'page-heading-container' ); ?>
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+  
+      <div class="page-heading-container">
 
-        <div class="content">
-
+        <div class="heading">
+          <div>
+            <div class="title-container">
+              <h1><?php the_title(); ?></h1>
+              <div class="content-wrapper">
+                <?php the_content(__('(more...)')); ?>
+              </div>
+            </div>
+            <div class="chat-container"><?php get_template_part( 'partials/primary-action-chat' ); ?></div>
+          </div>
+        </div>
+        
+        <div class="heading-mobile">
+          <h1><?php the_title(); ?></h1>
           <div class="content-wrapper">
             <?php the_content(__('(more...)')); ?>
           </div>
-  
-          <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
-
-          <?php echo do_shortcode('[siblings depth="1" exclude="current" sort_column="menu_order" class="related" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
-
         </div>
         
-        <?php get_template_part( 'back-to-top' ); ?>
+      </div>
 
-      <?php endwhile; else: ?>
-        <?php _e('Sorry, no pages matched your criteria.'); ?>
-      <?php endif; ?>
+      <div class="content">
 
-    </div>
+        <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
+
+        <?php echo do_shortcode('[siblings depth="1" exclude="current" sort_column="menu_order" class="related-question" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
+
+      </div>
+      
+      <?php get_template_part( 'partials/back-to-top' ); ?>
+
+    <?php endwhile; else: ?>
+      <?php _e('Sorry, no pages matched your criteria.'); ?>
+    <?php endif; ?>
+
   </div>
 
 <?php get_footer(); ?>

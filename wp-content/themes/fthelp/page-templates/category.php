@@ -9,22 +9,20 @@
 
 get_header(); ?>
 
-    <?php get_template_part( 'breadcrumbs' ); ?>
-
     <div class="category-template">
 
-      <?php get_template_part( 'helpSearchForm' ); ?>
+      <?php get_template_part( 'partials/search-form' ); ?>
 
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     
-        <?php get_template_part( 'page-heading-container' ); ?>
+        <?php get_template_part( 'partials/page-heading-container' ); ?>
 
         <div class="content">
           <hr/>
           <?php the_content(__('(more...)')); ?>
         </div>
 
-        <?php get_template_part( 'back-to-top' ); ?>
+        <?php get_template_part( 'partials/back-to-top' ); ?>
 
       <?php endwhile; else: ?>
         <?php _e('Sorry, no pages matched your criteria.'); ?>

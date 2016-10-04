@@ -10,45 +10,58 @@
 get_header(); ?>
 <div class="search-template-container">
 
-  <?php get_template_part( 'breadcrumbs' ); ?>
-
   <div class="search-template">
 
-    <?php get_template_part( 'helpSearchForm' ); ?>
+    <?php get_template_part( 'partials/search-form' ); ?>
     
-    <div class="page-heading-container">
+    <?php if ( have_posts() ) : ?>
 
-      <div class="heading">
-        <div>
-          <div class="title-container"><h1>Search Results for: <?php echo get_search_query()?></h1></div>
-          <div class="chat-container"><?php get_template_part( 'primary-action-chat' ); ?></div>
+      <div class="page-heading-container">
+        <div class="heading">
+          <div>
+            <div class="title-container">
+              <h1>Search Results for: <?php echo get_search_query()?></h1>
+              <?php
+              // Start the loop.
+              while ( have_posts() ) : the_post(); ?>
+                <div class="content-wrapper">
+                  <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );?>
+                  <p><?php the_excerpt(); ?></p> 
+                </div>
+              <?php
+              // Start the loop.
+              endwhile; ?>
+            </div>
+            <div class="chat-container"><?php get_template_part( 'partials/primary-action-chat' ); ?></div>
+          </div>
+        </div>
+        <div class="heading-mobile">
+          <h1>Search Results for: <?php echo get_search_query()?></h1>
+          <?php
+          // Start the loop.
+          while ( have_posts() ) : the_post(); ?>
+            <div class="content-wrapper">
+              <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );?>
+              <p><?php the_excerpt(); ?></p> 
+            </div>
+          <?php
+          // Start the loop.
+          endwhile; ?>
+        </div>
+
+      </div>
+
+      <?php get_template_part( 'partials/back-to-top' ); ?>
+
+    <?php else : ?>
+      <div class="content-wrapper no-result">
+        <div class="icon">
+          <h1>Search Results for: <?php echo get_search_query()?></h1>
+          <h2 class="entry-title"><?php _e('Sorry, but nothing matched your search terms. Please try again with some different keywords'); ?></h2>
         </div>
       </div>
-      
-      <div class="heading-mobile">
-        <h1>Search Results for: <?php echo get_search_query()?></h1>
-      </div>
-      
-    </div>
+    <?php endif; ?>
 
-    <div class="content">
-      <hr/>
-      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-          <div class="content-wrapper">
-            <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );?>
-            <p><?php the_excerpt(); ?></p> 
-          </div>
-      <?php endwhile; else: ?>
-          <div class="icon">
-            <h2 class="entry-title"><?php _e('Sorry, but nothing matched your search terms. Please try again with some different keywords'); ?></h2>
-          </div>
-      <?php endif; ?>
-
-      <?php if (have_posts()) : 
-        echo get_template_part( 'back-to-top' );
-      endif; ?>
-
-    </div>
   </div>
 </div>
 <?php get_footer(); ?>

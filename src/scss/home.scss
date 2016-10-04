@@ -1,0 +1,93 @@
+.home-template {
+
+  .primary-action {
+    @include layout-container();
+    > div {
+      @include oGridRow();
+      > div {
+        @include oGridColspan((default: 12, S:12, M: 6));
+      }
+    }
+
+    .chat, .contact {
+      border-bottom: solid 1px #979797;
+    }
+
+    @include oGridRespondTo($until: M) {
+      .chat {
+        margin-top: 0;
+      }
+      .old-ft {
+        display: none;
+      }
+    }
+    @include oGridRespondTo($from: M) {
+      .chat, .contact {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .content {
+    @include layout-container();
+
+
+    h2.o-typography-subhead--crosshead {
+      @include MetricWebRegular();
+
+      border-bottom: none;
+      border-top: 1px solid #979797;
+      font-size:26px;
+      color:#4a4a4a;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 20px;
+      &.top-answer {
+        margin-top: 60px;
+      }
+    }
+
+    ul.help-topic {
+      @extend .list-2-column;
+      padding-left: 0;
+      margin-top: 0;
+
+      @extend .list-li-caret;
+    }
+  }
+
+  div.top-answer {
+    margin-top: 10px;
+    width: 70%;
+    @include oGridRespondTo($until: M) {
+      width: 100%;
+    }
+    .page-list-ext-item {
+      margin:0 0 20px 0;
+
+      h3.page-list-ext-title {
+        @include MetricWebSemiBold();
+        font-size:20px;
+        color:oColorsGetPaletteColor("grey-tint5");
+        line-height:26px;
+        margin-bottom: 0;
+        margin-top: 0;
+
+        a {
+          @include MetricWebSemiBold();
+          font-size:20px;
+          color:oColorsGetPaletteColor("org-b2c-dark");
+          line-height:26px;
+          text-decoration: none;
+          &:hover {
+            text-decoration: none;
+            border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+          }
+        }
+      }
+    }
+    .page-list-ext-item-content {
+      @include content-text();
+    }
+  }
+}
