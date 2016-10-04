@@ -12,7 +12,7 @@ get_header(); ?>
       
     <?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-    <div class="content-template">
+    <div class="content-template" data-trackable="legal">
 
       <?php get_template_part( 'partials/search-form' ); ?>
 

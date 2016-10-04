@@ -11,7 +11,7 @@ get_header(); ?>
       
   <?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-  <div class="content-template">
+  <div class="content-template" data-trackable="content">
 
     <?php get_template_part( 'partials/search-form' ); ?>
 
@@ -43,8 +43,13 @@ get_header(); ?>
       <div class="content">
 
         <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
-
-        <?php echo do_shortcode('[siblings depth="1" exclude="current" sort_column="menu_order" class="related-question" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
+        <div class="related-question-container" data-trackable="related-question">
+          <div>
+            <div>
+              <?php echo do_shortcode('[siblings depth="1" exclude="current" sort_column="menu_order" class="related-question" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
+            </div>
+          </div>
+        </div>
 
       </div>
       

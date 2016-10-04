@@ -9,6 +9,7 @@
   "devDependencies": {
     "del": "^2.2.2",
     "gulp-mustache": "^2.2.0",
+    "gulp-param": "^1.0.3",
     "gulp-rename": "^1.2.2",
     "run-sequence": "^1.2.2"
   }

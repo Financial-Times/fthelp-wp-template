@@ -11,7 +11,7 @@ get_header(); ?>
 
     <?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-    <div class="contact-template">
+    <div class="contact-template" data-trackable="contact">
 
       <?php get_template_part( 'partials/search-form' ); ?>
 
@@ -33,7 +33,7 @@ get_header(); ?>
                 <H4>Help us improve.</H4>
                 <p>We're constantly improving and would like to hear from you.</p>
               </div>
-              <div class="action"><a href="https://www.ft.com/nps-feedback" class="o-buttons o-buttons--standout o-buttons--big">PROVIDE FEEDBACK</a></div>
+              <div class="action"><a href="https://www.ft.com/nps-feedback" data-trackable="feedback-banner" class="o-buttons o-buttons--standout o-buttons--big">PROVIDE FEEDBACK</a></div>
             </div>          
           </div>
         </div>

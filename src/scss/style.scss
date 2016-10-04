@@ -14,6 +14,7 @@ $o-fonts-is-silent: true;
 @import 'o-fonts/main';
 
 @include oFontsInclude(MetricWeb, $weight: semibold);
+
 @include oFontsInclude(FinancierDisplayWeb);
 
 @mixin MetricWebRegular() {
@@ -33,7 +34,6 @@ $o-fonts-is-silent: true;
   color:oColorsGetPaletteColor("grey-tint5");
 }
 
-
 body {
   @include MetricWebRegular();
   background-color: oColorsGetPaletteColor("pink");
@@ -52,7 +52,6 @@ body {
     padding-right: 30px;
   }    
 }
-
 
 .header-sub-brand-container {
 
@@ -165,6 +164,12 @@ body {
   }
 }
 
+html.core .chat-online {
+  display: none;
+}
+html.core .chat-offline {
+  display: block;
+}
 .chat, .contact, .new-ft, .old-ft {
   margin-top: 29px;
   padding-bottom:29px;
@@ -257,6 +262,7 @@ body {
       color:oColorsGetPaletteColor("org-b2c-dark");
       border-bottom: 1px dotted oColorsGetPaletteColor("pink");
       &:hover {
+        color:oColorsGetPaletteColor("org-b2c-dark");
         text-decoration: none;
         border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
       }
@@ -277,8 +283,6 @@ body {
     column-gap: 20px;
   }
 }
-
-
 
 // ----------------------------------------------------------------------------------------------------------
 
@@ -340,6 +344,8 @@ body {
       @include content-text();
       a {
         @include oTypographyLink;
+        color:  oColorsGetPaletteColor("org-b2c-dark");
+        border-color: oColorsGetPaletteColor("org-b2c-dark");
       }
     }
   }    
@@ -434,6 +440,8 @@ body {
     @include content-text();
     a {
       @include oTypographyLink;
+      color:  oColorsGetPaletteColor("org-b2c-dark");
+      border-color: oColorsGetPaletteColor("org-b2c-dark");
     }
     h2.o-typography-subhead--crosshead {
       @include MetricWebRegular();
@@ -447,6 +455,24 @@ body {
       padding-top: 28px;
     }
 
+    .related-question-container {
+      @include oGridContainer();
+      @include oGridRespondTo($until: M) {
+        padding-left: 0;
+        padding-right: 0;
+      }    
+      @include oGridRespondTo($from: M) {
+        padding-left: 0;
+        padding-right: 0;
+      }    
+      > div {
+        @include oGridRow();
+        div {
+          @include oGridColspan((default: 12, S:12, M: 8));
+        }
+      }
+
+    }
     ul.related-question {
       margin:20px 0 20px 0;
       padding: 0;

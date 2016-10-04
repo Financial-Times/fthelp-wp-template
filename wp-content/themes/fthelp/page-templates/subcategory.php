@@ -11,7 +11,7 @@ get_header(); ?>
 
     <?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-    <div class="subcategory-template">
+    <div class="subcategory-template" data-trackable="subcategory">
 
       <?php get_template_part( 'partials/search-form' ); ?>
 

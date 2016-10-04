@@ -10,7 +10,7 @@
 get_header(); ?>
 <div class="search-template-container">
 
-  <div class="search-template">
+  <div class="search-template" data-trackable="search">
 
     <?php get_template_part( 'partials/search-form' ); ?>
     
@@ -19,13 +19,13 @@ get_header(); ?>
       <div class="page-heading-container">
         <div class="heading">
           <div>
-            <div class="title-container">
+            <div class="title-container" data-trackable="desktop-results">
               <h1>Search Results for: <?php echo get_search_query()?></h1>
               <?php
               // Start the loop.
               while ( have_posts() ) : the_post(); ?>
                 <div class="content-wrapper">
-                  <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );?>
+                  <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" data-trackable="result">', '</a></h2>' );?>
                   <p><?php the_excerpt(); ?></p> 
                 </div>
               <?php
@@ -35,13 +35,13 @@ get_header(); ?>
             <div class="chat-container"><?php get_template_part( 'partials/primary-action-chat' ); ?></div>
           </div>
         </div>
-        <div class="heading-mobile">
+        <div class="heading-mobile" data-trackable="mobile-results">
           <h1>Search Results for: <?php echo get_search_query()?></h1>
           <?php
           // Start the loop.
           while ( have_posts() ) : the_post(); ?>
             <div class="content-wrapper">
-              <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );?>
+              <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" data-trackable="result">', '</a></h2>' );?>
               <p><?php the_excerpt(); ?></p> 
             </div>
           <?php

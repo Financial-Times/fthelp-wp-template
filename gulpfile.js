@@ -1,55 +1,56 @@
-var gulp = require('gulp');
+
+var gulp = require('gulp-param')(require('gulp'), process.argv);
 var runSequence = require('run-sequence');
 var del = require('del');
 var rename = require('gulp-rename');
 var obt = require('origami-build-tools');
+
 var buildFolder = './wp-content/themes/fthelp';
+var themeFolder = './wp-content/themes/';
+var environment = 'development';
+
 var paths = {
   scss: ['./src/scss/style.scss'],
   js : ['./src/js/style.scss'],
   watch: ['./src/scss/**/*.scss', './src/js/**/*.js', './src/templates/**/*.php', './src/images/**/*.*']
 }
 
-gulp.task('build', function(callback) {
-  runSequence('clean-build', 'build-css', 'build-js', 'copy-template', 'copy-images', callback);
+function setBuildFolder(theme) {
+  console.log('theme: ', theme);
+  if (theme && buildFolder.indexOf(theme)===-1) {
+    buildFolder = themeFolder += theme;
+  }
+}
+
+function setEnvironment(env) {
+  environment = (env === 'prod')? 'production' : 'development';
+}
+
+gulp.task('build', function(theme, env, callback) {
+  
+  setEnvironment(env);
+  setBuildFolder(theme + '-' + environment);
+  runSequence('clean-build', 'obt', 'copy-assets', callback);
+});
+
+gulp.task('watch', function (theme) {
+  gulp.watch(paths.watch, ['build']);
 });
 
 gulp.task('clean-build', function(callback){
   return del(buildFolder, callback);
 });
 
-gulp.task('build-css', function () {
-  return obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, sourcemaps: 'inline', buildCss: 'style.css'});
+gulp.task('obt', function(callback){
+  obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, buildCss: 'style.css', env: environment});
+  obt.build.js(gulp, {js: './src/js/main.js', buildFolder: buildFolder + '/js', env: environment});
+  callback();
 });
 
-gulp.task('build-js', function () {
-  return obt.build.js(gulp, {js: './src/js/main.js', buildFolder: buildFolder + '/js'});
-});
-
-gulp.task('copy-template', function () {
-  return gulp.src('./src/templates/**/*.*').pipe(gulp.dest(buildFolder));
-});
-
-gulp.task('copy-images', function () {
-  return gulp.src('./src/images/**/*.*').pipe(gulp.dest(buildFolder + '/images'));
-});
-
-gulp.task('copy-js', function () {
-  return gulp.src('./src/js/**/*.*').pipe(gulp.dest(buildFolder + '/images'));
-});
-
-gulp.task('releases', function() {
-    obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, env:'production'});
-});
-
-gulp.task('verify', function() {
-    obt.verify(gulp, {
-        sass: paths.scss
-    });
-});
-
-gulp.task('watch', function () {
-  gulp.watch(paths.watch, ['build']);
+gulp.task('copy-assets', function (callback) {
+  gulp.src('./src/templates/**/*.*').pipe(gulp.dest(buildFolder));
+  gulp.src('./src/images/**/*.*').pipe(gulp.dest(buildFolder + '/images'));
+  callback();
 });
 
 

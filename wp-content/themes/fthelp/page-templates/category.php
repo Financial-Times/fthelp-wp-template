@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-    <div class="category-template">
+    <div class="category-template" data-trackable="category">
 
       <?php get_template_part( 'partials/search-form' ); ?>
 
