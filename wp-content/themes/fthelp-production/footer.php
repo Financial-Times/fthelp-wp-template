@@ -1,6 +1,6 @@
 
 
-    <footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">
+    <footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="" data-trackable="footer">
       <div class="o-footer__container">
 
         <div class="o-footer__row">

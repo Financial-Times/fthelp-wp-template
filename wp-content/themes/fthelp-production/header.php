@@ -143,7 +143,7 @@
         <div class="o-header__top-wrapper">
 
           <div class="o-header__top-column o-header__top-column--center">
-            <a class="o-header__top-logo" href="//www.ft.com" title="Go to Financial Times homepage">
+            <a class="o-header__top-logo" href="//www.ft.com" title="Go to Financial Times homepage" data-trackable="ft-logo">
               <span class="o-header__visually-hidden">Financial Times</span>
             </a>
           </div>
@@ -154,7 +154,7 @@
   </header>
 
   <div class="header-sub-brand-container">
-    <div class="header-sub-brand"><h1 class="o-typography-subhead"><a href="/">Help Centre</a></h1></div>
+    <div class="header-sub-brand"><h1 class="o-typography-subhead"><a href="/" data-trackable="sub-brand">Help Centre</a></h1></div>
   </div>
 
 
