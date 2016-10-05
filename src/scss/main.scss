@@ -1,0 +1,98 @@
+$o-grid-is-silent: true;
+@import 'o-grid/main';
+
+$o-colors-is-silent: true;
+@import 'o-colors/main';
+
+$o-buttons-is-silent: true;
+@import 'o-buttons/main';
+
+$o-typography-is-silent: true;
+@import 'o-typography/main';
+
+$o-fonts-is-silent: true;
+@import 'o-fonts/main';
+
+@include oFontsInclude(MetricWeb, $weight: semibold);
+
+@include oFontsInclude(FinancierDisplayWeb);
+
+@import './mixin';
+
+body {
+  @include MetricWebRegular();
+  background-color: oColorsGetPaletteColor("pink");
+  margin: 0;
+  padding: 0;
+
+  H1 {
+    @include MetricWebSemiBold();
+    color: oColorsGetPaletteColor("grey-tint5");
+    font-size: 40px;
+    margin: 0;
+    @include oGridRespondTo($until: M) {
+      font-size: 32px;
+      margin-top: 25px;
+    }
+  }
+
+  .home-template, .category-template, .subcategory-template, .contact-template, .content-template, .search-template {
+    @include layout-padding();
+  }
+
+  .category-template, .subcategory-template, .contact-template {
+    div.chat-container {
+      margin-bottom: 16px;
+      @include oGridRespondTo($from: M) {
+        @include oGridPush(6);
+      }
+      .chat {
+        margin-top: 0;
+        padding-bottom: 0;
+      }
+
+    }
+    div.heading-container {
+      @include oGridRespondTo($from: M) {
+        @include oGridPull(6);
+      }
+    }
+  }
+
+  .content-template, .search-template {
+    div.chat-container {
+      margin-bottom: 16px;
+      @include oGridRespondTo($from: M) {
+        @include oGridPush(8);
+      }
+      .chat {
+        margin-top: 0;
+        padding-bottom: 0;
+      }
+
+    }
+    div.content-container {
+      @include oGridRespondTo($from: M) {
+        @include oGridPull(4);
+      }
+    }
+  }
+
+}
+
+@import './components/header-subbrand';
+@import './components/search-form';
+@import './components/primary-action';
+@import './components/back-to-top';
+@import './components/hr';
+@import './components/breadcrumbs';
+
+
+@import './pages/home';
+@import './pages/category';
+@import './pages/subcategory';
+@import './pages/contact';
+@import './pages/index';
+@import './pages/search';
+
+

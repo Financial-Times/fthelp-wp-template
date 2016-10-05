@@ -1,0 +1,52 @@
+html.core .chat-online {
+  display: none;
+}
+html.core .chat-offline {
+  display: block;
+}
+.chat, .contact, .new-ft, .old-ft {
+  margin-top: 29px;
+  padding-bottom:29px;
+  padding-left: 100px;
+  background-position: 0% 2px;
+  background-repeat: no-repeat;
+  background-size: 70px 70px;
+
+  div {
+    @include MetricWebSemiBold();
+    color: oColorsGetPaletteColor("grey-tint5");
+    font-size: 24px;
+    min-height: 56px;
+  }
+  .o-buttons {
+    @include oButtonsSize(big);
+  }
+
+  @include oGridRespondTo($until: M) {
+    margin-top: 19px;
+    padding-bottom:19px;
+    padding-left: 70px;
+    background-position: 0% 20%;
+    background-size: 50px 50px;
+    div {
+      font-size: 22px;
+      min-height: 32px;
+      padding-bottom: 5px;
+    }
+    .o-buttons {
+      @include oButtonsSize(medium);
+    }
+  }    
+}
+.chat {
+  background-image: url("images/primary-action-2/live-chat.png");
+}
+.contact {
+  background-image: url("images/primary-action-2/contact-us.png");
+}
+.new-ft {
+  background-image: url("images/primary-action-2/take-a-tour.png");
+}
+.old-ft {
+  background-image: url("images/primary-action-2/opt-out.png");
+}

@@ -1,0 +1,20 @@
+.back-to-top-container {
+  @include oGridRespondTo($until: M) {
+    text-align: center;
+  }
+  a.back-to-top {
+    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+    text-decoration: none;
+    font-size:20px;
+    line-height: 40px;
+    color:oColorsGetPaletteColor("org-b2c-dark");
+    &:hover {
+      text-decoration: none;
+      border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+    }
+    i {
+      @include oIconsGetIcon('arrow-up', oColorsGetPaletteColor('org-b2c-dark'), 14);
+      padding: 0 5px;
+    }
+  }
+}

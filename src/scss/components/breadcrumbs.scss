@@ -1,0 +1,44 @@
+.breadcrumbs-container {
+  background-color: oColorsGetPaletteColor("white");
+  border-bottom:solid 1px grey;
+
+  .breadcrumbs  {
+    @include layout-container();
+
+    color: oColorsGetPaletteColor("org-b2c-dark");
+    line-height:29px;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    span {
+      @include MetricWebSemiBold();
+      color: oColorsGetPaletteColor("org-b2c-dark");
+      &:nth-last-child(2) {
+        display: none;
+      }
+    }
+    a {
+      @include MetricWebSemiBold();
+      color: oColorsGetPaletteColor("org-b2c-dark");
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+      }
+      span {
+        @include MetricWebSemiBold();
+        color: oColorsGetPaletteColor("org-b2c-dark");
+      }
+    }
+    .separator {
+      @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('org-b2c-dark'), 10);
+      display: inline;
+      background-size: 15px;
+      padding: 0 9px;
+      &:nth-last-child(-n+3) {
+        display: none;
+      }
+
+    }
+  }
+}

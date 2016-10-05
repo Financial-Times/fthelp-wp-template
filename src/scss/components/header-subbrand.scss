@@ -1,0 +1,26 @@
+.header-sub-brand-container {
+  background-color: oColorsGetPaletteColor("org-b2c-dark");
+
+  .header-sub-brand {
+    @include layout-padding();
+    .o-typography-subhead {
+      margin:0;
+      a {
+        color: oColorsGetPaletteColor("white");
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      @include oGridRespondTo($until: M) {
+        font-size: 18px;
+        line-height: 55px;
+      }    
+      @include oGridRespondTo($from: M) {
+        font-size: 40px;
+        line-height: 80px;
+      }    
+    }
+  }
+}

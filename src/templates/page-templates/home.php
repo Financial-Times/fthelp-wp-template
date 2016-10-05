@@ -9,24 +9,22 @@
 
 get_header(); ?>
 
-  <div class="home-template" data-trackable="home">
+  <div class="home-template o-grid-container" data-trackable="home">
     
-    <?php get_template_part( 'partials/search-form' ); ?>
+    <?php get_template_part( 'partials/search-form-2' ); ?>
 
-    <?php get_template_part( 'partials/primary-action' ); ?>
+    <?php get_template_part( 'partials/primary-action-2' ); ?>
 
-    <div class="content">
-
+    <div class="o-grid-row">
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        
         <?php the_content(__('(more...)')); ?>
-
       <?php endwhile; else: ?>
+      <div data-o-grid-colspan="12">
         <?php _e('Sorry, no posts matched your criteria.'); ?>
+      </div>
       <?php endif; ?>
-      
     </div>
-
+    
     <?php get_template_part( 'partials/back-to-top' ); ?>
 
   </div>

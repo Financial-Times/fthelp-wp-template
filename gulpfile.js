@@ -10,8 +10,8 @@ var themeFolder = './wp-content/themes/';
 var environment = 'development';
 
 var paths = {
-  scss: ['./src/scss/style.scss'],
-  js : ['./src/js/style.scss'],
+  scss: ['./src/scss/main.scss'],
+  js : ['./src/js/main.js'],
   watch: ['./src/scss/**/*.scss', './src/js/**/*.js', './src/templates/**/*.php', './src/images/**/*.*']
 }
 
@@ -43,7 +43,7 @@ gulp.task('clean-build', function(callback){
 
 gulp.task('obt', function(callback){
   obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, buildCss: 'style.css', env: environment});
-  obt.build.js(gulp, {js: './src/js/main.js', buildFolder: buildFolder + '/js', env: environment});
+  obt.build.js(gulp, {js: paths.js, buildFolder: buildFolder + '/js', env: environment});
   callback();
 });
 

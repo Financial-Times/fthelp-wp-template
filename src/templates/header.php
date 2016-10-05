@@ -117,7 +117,7 @@
 
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url');?>">
 
-    <link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-header@^6.5.1,o-fonts@^2.0.0,o-grid@^4.2.1,o-footer@^5.0.3,o-typography@^4.3.1,o-forms@^3.1.0,o-icons@^5.0.0,o-buttons@^4.4.0">
+    <link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-header@^6.5.1,o-fonts@^2.0.0,o-grid@^4.2.1,o-footer@^5.0.3,o-typography@^4.3.1,o-forms@^3.2.0,o-icons@^5.0.0,o-buttons@^4.4.0">
 
     <script>
     var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
@@ -154,7 +154,7 @@
   </header>
 
   <div class="header-sub-brand-container">
-    <div class="header-sub-brand"><h1 class="o-typography-subhead"><a href="/" data-trackable="sub-brand">Help Centre</a></h1></div>
+    <div class="header-sub-brand o-grid-container"><h1 class="o-typography-subhead"><a href="/" data-trackable="sub-brand">Help Centre</a></h1></div>
   </div>
 
 

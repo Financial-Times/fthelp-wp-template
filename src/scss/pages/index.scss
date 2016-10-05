@@ -1,0 +1,31 @@
+.content-template {
+
+  .content-container {
+    @include content-text();
+
+    h1 {
+      @include MetricWebSemiBold();
+      color: oColorsGetPaletteColor("grey-tint5");
+      font-size: 20px;
+      margin: 0 0 20px 0;
+    }
+  }
+
+
+  div.related-container {
+    h2.o-typography-subhead--crosshead {
+      @include MetricWebRegular();
+      border-bottom: none;
+      font-size:26px;
+      color:#4a4a4a;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
+    ul.related-question {
+      margin:20px 0;
+      padding: 0;
+      @include list-li-caret();
+    }
+  }
+}

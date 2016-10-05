@@ -8,42 +8,23 @@
  */
 
 get_header(); ?>
-      
-<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-<div class="content-template">
+  <div class="content-template o-grid-container" data-trackable="not-found">
 
-  <?php get_template_part( 'partials/search-form' ); ?>
+    <?php get_template_part( 'partials/search-form-2' ); ?>
 
-  <div class="page-heading-container">
-
-    <div class="heading">
-      <div>
-        <div class="title-container">
-          <h1>Sorry</h1>
-          <div class="content-wrapper">
-            <p>The page you are trying to access does not exist.<br>
-            This might be because you have entered the web address incorrectly or the page has moved.</p>
-            <p>For help please contact <a class="error-page__link" href="mailto:help@ft.com">help@ft.com</a>.<br/>
-            We apologise for any inconvenience.</p>
-          </div>
-        </div>
-        <div class="chat-container"><?php get_template_part( 'partials/primary-action-chat' ); ?></div>
-      </div>
-    </div>
-    
-    <div class="heading-mobile">
-      <h1>Sorry</h1>
-      <div class="content-wrapper">
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="12 M4" class="chat-container"><?php get_template_part( 'partials/primary-action-chat' ); ?></div>
+      <div data-o-grid-colspan="12 Mhide"><hr/></div>
+      <div data-o-grid-colspan="12 M8" class="content-container">
+        <h1>Sorry</h1>
         <p>The page you are trying to access does not exist.<br>
         This might be because you have entered the web address incorrectly or the page has moved.</p>
         <p>For help please contact <a class="error-page__link" href="mailto:help@ft.com">help@ft.com</a>.<br/>
         We apologise for any inconvenience.</p>
       </div>
     </div>
-    
-  </div>
 
-</div>
+  </div>
 
 <?php get_footer(); ?>

@@ -1,0 +1,75 @@
+.contact-template {
+  .contact-list {
+    @include content-text();
+
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        padding: 8px 0;
+      }
+    }
+    h2 {
+      @include MetricWebSemiBold();
+      font-size: 18px;
+    }
+    .tel-desktop {
+      display: inline-block;
+    }
+    .tel-mobile {
+      display: none;
+    }
+    @include oGridRespondTo($until: M) {
+      .tel-desktop {
+        display: none;
+      }
+      .tel-mobile {
+        display: inline-block;
+      }
+    }
+  }
+
+  .feedback-container {
+    background:#f9d9d2;
+    margin-top: 30px;
+
+    div.msg, div.action {
+      padding: 10px !important;
+      @include oGridRespondTo($until: M) {
+        padding: 10px !important;
+      }
+    }
+    div.msg {
+      h4, p {
+        padding: 0;
+        margin: 0;
+      }
+      h4 {
+        @include MetricWebSemiBold();
+        color: oColorsGetPaletteColor("grey-tint5");
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      p {
+        @include MetricWebRegular();
+        line-height: 24px;
+        font-size: 18px;
+      }
+      @include oGridRespondTo($until: M) {
+        padding: 10px !important;
+      }
+    }
+    div.action {
+      text-align: right;
+      a {
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+
+      @include oGridRespondTo($until: M) {
+        text-align: left;
+      }
+    }
+  }
+}

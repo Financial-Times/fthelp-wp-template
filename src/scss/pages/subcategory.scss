@@ -1,0 +1,7 @@
+.subcategory-template {
+  ul.category {
+    margin:20px 0 20px 0;
+    padding: 0;
+    @include list-li-caret();
+  }
+}

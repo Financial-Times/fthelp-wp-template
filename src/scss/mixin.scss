@@ -1,0 +1,88 @@
+@mixin layout-padding (){
+  @include oGridRespondTo($until: M) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }    
+  @include oGridRespondTo($from: M) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }    
+}
+
+@mixin layout-container (){
+  @include oGridContainer();
+  @include oGridRespondTo($until: M) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }    
+  @include oGridRespondTo($from: M) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }    
+}
+
+@mixin MetricWebRegular() {
+  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+  font-weight: 400;
+}
+
+@mixin MetricWebSemiBold() {
+  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+  font-weight: 600;
+}
+
+@mixin content-text (){
+  font-family:georgia;
+  font-size:18px;
+  line-height:26px;
+  color:oColorsGetPaletteColor("grey-tint5");
+  a {
+    @include oTypographyLink;
+    color:  oColorsGetPaletteColor("org-b2c-dark");
+    border-color: oColorsGetPaletteColor("org-b2c-dark");
+  }  
+}
+
+@mixin list-2-column (){
+  @include oGridRespondTo($from: M) {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+@mixin list-caret (){
+  @include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('org-b2c-dark'), 20);
+  display: inline;
+  background-size: 20px;  
+  padding: 0 5px;
+}
+
+@mixin list-li-caret (){
+  li {
+    list-style: none;
+    padding: 12px 0;
+    a {
+      @include MetricWebSemiBold();
+      display: inline-block;
+      padding:0;
+      text-decoration: none;
+      text-transform: none;
+      font-size:20px;
+      line-height: 26px;
+      color:oColorsGetPaletteColor("org-b2c-dark");
+      border-bottom: 1px dotted oColorsGetPaletteColor("pink");
+      &:hover {
+        color:oColorsGetPaletteColor("org-b2c-dark");
+        text-decoration: none;
+        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+      }
+      span.caret {
+        @include list-caret();
+      }
+    }
+  }
+}
