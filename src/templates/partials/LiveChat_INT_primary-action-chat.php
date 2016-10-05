@@ -1,11 +1,11 @@
 <!-- INT 03/10/2016 -->
 <div class="chat chat-online" id="liveagent_button_online_573260000008OSe">
-  <div>Welcome to Live FT Chat</div>
+  <div>Chat with FT Customer Service</div>
   <a href="javascript:liveagent.startChat('573260000008OSe');void(0);" role="button" data-trackable="chat" class="cta chat-online o-buttons o-buttons--b2c">Start Chat</a>
 </div>
 
 <div class="chat chat-offline" id="liveagent_button_offline_573260000008OSe">
-  <div>Welcome to Live FT Chat</div>
+  <div>Chat with FT Customer Service</div>
   <a href="#void" role="button" class="cta chat-offline o-buttons o-buttons--b2c" data-trackable="chat" disabled="disabled">Currently Offline</a>
 </div>
 

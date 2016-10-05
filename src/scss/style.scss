@@ -616,9 +616,10 @@ html.core .chat-offline {
     @include layout-container();
     .icon {
       text-align: center;
-      background-image: url("images/search.png");
+      background-image: url("images/primary-action-2/no-search-results.png");
       background-repeat: no-repeat;
       background-position: top center;
+      background-size: 100px 100px;
       margin-top: 25px;
       padding-top: 100px;
       H1 {

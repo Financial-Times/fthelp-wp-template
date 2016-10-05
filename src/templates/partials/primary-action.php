@@ -5,7 +5,7 @@
     </div>
     <div>
       <div class="contact">
-        <div>Contact our Customer Service</div>
+        <div>Other ways to contact</div>
         <a href="<?php echo site_url('/help/contact-us/'); ?>" data-trackable="contact" role="button" class="cta o-buttons o-buttons--b2c">Contact Us</a>
       </div>
     </div>
