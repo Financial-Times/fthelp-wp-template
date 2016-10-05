@@ -11,7 +11,7 @@ get_header(); ?>
 
   <div class="content-template o-grid-container" data-trackable="legal">
 
-    <?php get_template_part( 'partials/search-form-2' ); ?>
+    <?php get_template_part( 'partials/search-form' ); ?>
 
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   

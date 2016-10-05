@@ -11,7 +11,7 @@ get_header(); ?>
 
   <div class="content-template o-grid-container" data-trackable="not-found">
 
-    <?php get_template_part( 'partials/search-form-2' ); ?>
+    <?php get_template_part( 'partials/search-form' ); ?>
 
     <div class="o-grid-row">
       <div data-o-grid-colspan="12 M4" class="chat-container"><?php get_template_part( 'partials/primary-action-chat' ); ?></div>
