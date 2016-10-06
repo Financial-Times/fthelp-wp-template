@@ -36,6 +36,13 @@ body {
     }
   }
 
+  hr {
+    padding:0;
+    margin:0;
+    border:none;
+    border-top: solid 1px #979797;
+  }
+
   .home-template, .category-template, .subcategory-template, .contact-template, .content-template, .search-template {
     @include layout-padding();
   }
@@ -84,7 +91,6 @@ body {
 @import './components/search-form';
 @import './components/primary-action';
 @import './components/back-to-top';
-@import './components/hr';
 @import './components/breadcrumbs';
 
 
