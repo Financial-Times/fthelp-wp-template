@@ -162,6 +162,19 @@ document.addEventListener("o.DOMContentLoaded", function() {
     }
   });
   
+  function widowsFormatting(item) {
+    var caret = '<span class="caret">&nbsp;</span>';
+    var text = item.innerHTML.split(caret)[0].trim().split(' ');
+    var lastword = '<nobr>' + text.pop() + ' ' + caret + '</nobr>';
+    text.push(lastword);
+    console.log(text.join(' '));
+    item.innerHTML = text.join(' ');
+  }
+
+
+  document.querySelectorAll('.category-template ul.children a').forEach(widowsFormatting);
+  document.querySelectorAll('.subcategory-template ul.category a').forEach(widowsFormatting);
+  document.querySelectorAll('.content-template .related-question a').forEach(widowsFormatting);
 
 
 });
