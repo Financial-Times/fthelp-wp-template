@@ -16,7 +16,6 @@ var paths = {
 }
 
 function setBuildFolder(theme) {
-  console.log('theme: ', theme);
   if (theme && buildFolder.indexOf(theme)===-1) {
     buildFolder = themeFolder += theme;
   }
@@ -27,13 +26,13 @@ function setEnvironment(env) {
 }
 
 gulp.task('build', function(theme, env, callback) {
-  
   setEnvironment(env);
   setBuildFolder(theme + '-' + environment);
-  runSequence('clean-build', 'obt', 'copy-assets', callback);
+  console.log('Theme name: ', theme, ' Environment: ', environment);
+  runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
 });
 
-gulp.task('watch', function (theme) {
+gulp.task('watch', function () {
   gulp.watch(paths.watch, ['build']);
 });
 
@@ -41,25 +40,28 @@ gulp.task('clean-build', function(callback){
   return del(buildFolder, callback);
 });
 
-gulp.task('obt', function(callback){
-  obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, buildCss: 'style.css', env: environment});
-  obt.build.js(gulp, {js: paths.js, buildFolder: buildFolder + '/js', env: environment});
-  callback();
+
+gulp.task('obt-css', function(){
+  return obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, buildCss: 'style.css', env: environment});
+});
+gulp.task('obt-js', function(){
+  return obt.build.js(gulp, {js: paths.js, buildFolder: buildFolder + '/js', env: environment});
 });
 
-gulp.task('copy-assets', function (callback) {
-  gulp.src('./src/templates/**/*.*').pipe(gulp.dest(buildFolder));
-  gulp.src('./src/images/**/*.*').pipe(gulp.dest(buildFolder + '/images'));
-  callback();
+gulp.task('copy-templates', function () {
+  return gulp.src('./src/templates/**/*.*').pipe(gulp.dest(buildFolder));
+});
+gulp.task('copy-images', function () {
+  return gulp.src('./src/images/**/*.*').pipe(gulp.dest(buildFolder + '/images'));
 });
 
 
 gulp.task('watch-wp-content', function () {
-  gulp.watch(['./wp-content/themes/**/*.*'], ['copy-wp-content']);
+  return gulp.watch(['./wp-content/themes/**/*.*'], ['copy-wp-content']);
 });
 
 gulp.task('copy-wp-content', function () {
-  gulp.src('./wp-content/themes/**/*.*').pipe(gulp.dest('../fthelp-staging/wp-content/themes'));
+  return gulp.src('./wp-content/themes/**/*.*').pipe(gulp.dest('../fthelp-staging/wp-content/themes'));
 });
 
 // gulp.task('wp-local', function(callback) {

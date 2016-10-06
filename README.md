@@ -9,12 +9,17 @@ https://github.com/Financial-Times/origami-build-tools
 Run the following:
 
 ```
-obt install
+npm install
 ```
 
 ## Build
 
+
 ```
-obt build
+gulp build --theme fthelp --env dev
+or 
+gulp build --theme fthelp --env prod
+
+
 ```
 
