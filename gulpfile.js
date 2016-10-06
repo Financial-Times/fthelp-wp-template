@@ -7,6 +7,7 @@ var obt = require('origami-build-tools');
 
 var buildFolder = './wp-content/themes/fthelp';
 var themeFolder = './wp-content/themes/';
+var themeName = '';
 var environment = 'development';
 
 var paths = {
@@ -27,7 +28,8 @@ function setEnvironment(env) {
 
 gulp.task('build', function(theme, env, callback) {
   setEnvironment(env);
-  setBuildFolder(theme + '-' + environment);
+  themeName = theme + '-' + environment;
+  setBuildFolder(themeName);
   console.log('Theme name: ', theme, ' Environment: ', environment);
   runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
 });
@@ -58,6 +60,10 @@ gulp.task('copy-images', function () {
 
 gulp.task('watch-wp-content', function () {
   return gulp.watch(['./wp-content/themes/**/*.*'], ['copy-wp-content']);
+});
+
+gulp.task('clean-build', function(callback){
+  return del(buildFolder, callback);
 });
 
 gulp.task('copy-wp-content', function () {
