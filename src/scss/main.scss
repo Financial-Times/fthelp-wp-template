@@ -85,6 +85,12 @@ body {
     }
   }
 
+  nobr {
+    white-space: nowrap;
+    span {
+      white-space: nowrap;
+    }
+  }
 }
 
 @import './components/header-subbrand';

@@ -26,11 +26,11 @@ get_header(); ?>
         </div>
       </div>
 
-      <div class="o-grid-row">
+      <div class="o-grid-row related">
         <div data-o-grid-colspan="hide M12"><hr/></div>
       </div>
 
-      <div class="o-grid-row">
+      <div class="o-grid-row related">
         <div data-o-grid-colspan="12 M8" class="related-container" data-trackable="related-question">
           <h2 class="o-typography-subhead--crosshead">RELATED QUESTIONS</h2>
           <?php echo do_shortcode('[siblings depth="1" exclude="current" sort_column="menu_order" class="related-question" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>

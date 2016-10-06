@@ -156,9 +156,12 @@ document.addEventListener("o.DOMContentLoaded", function() {
   // hide related content if it's empty 
   // <!-- no pages to show -->
 
-  document.querySelectorAll('.content-template .content').forEach(function (item) {
+  document.querySelectorAll('.content-template .related-container').forEach(function (item) {
     if(item.innerHTML.indexOf('<!-- no pages to show -->') > -1){
-      item.style.display = 'none'
+      // item.style.display = 'none';
+      document.querySelectorAll('.related').forEach(function (item) {
+        item.style.display = 'none'
+      });
     }
   });
   
@@ -174,7 +177,14 @@ document.addEventListener("o.DOMContentLoaded", function() {
 
   document.querySelectorAll('.category-template ul.children a').forEach(widowsFormatting);
   document.querySelectorAll('.subcategory-template ul.category a').forEach(widowsFormatting);
-  document.querySelectorAll('.content-template .related-question a').forEach(widowsFormatting);
+
+  document.querySelectorAll('.content-template .related-question a').forEach(function(item, index, collection) {
+    if (index < 5) {
+      widowsFormatting(item);
+    } else {
+      item.parentNode.style.display = 'none';
+    }
+  });
 
 
 });
