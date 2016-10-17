@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-  <div class="content-template o-grid-container" data-trackable="legal">
+  <div class="legal-template o-grid-container" data-trackable="legal">
 
     <?php get_template_part( 'partials/search-form' ); ?>
 

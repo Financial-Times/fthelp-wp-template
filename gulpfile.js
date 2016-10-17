@@ -1,12 +1,13 @@
-
+var fs = require('fs');
+var package = require('./package.json');
 var gulp = require('gulp-param')(require('gulp'), process.argv);
 var runSequence = require('run-sequence');
-var del = require('del');
+var clean = require('gulp-clean');
+
 var rename = require('gulp-rename');
 var obt = require('origami-build-tools');
 
-var buildFolder = './wp-content/themes/fthelp';
-var themeFolder = './wp-content/themes/';
+var buildFolder = '';
 var themeName = '';
 var environment = 'development';
 
@@ -16,9 +17,9 @@ var paths = {
   watch: ['./src/scss/**/*.scss', './src/js/**/*.js', './src/templates/**/*.php', './src/images/**/*.*']
 }
 
-function setBuildFolder(theme) {
+function setBuildFolder(folder, theme) {
   if (theme && buildFolder.indexOf(theme)===-1) {
-    buildFolder = themeFolder += theme;
+    buildFolder = folder += theme;
   }
 }
 
@@ -26,20 +27,65 @@ function setEnvironment(env) {
   environment = (env === 'prod')? 'production' : 'development';
 }
 
-gulp.task('build', function(theme, env, callback) {
+function savePackageJSON() {
+  fs.writeFile('./package.json', JSON.stringify(package, null, 2), function(err) {
+    if(err) {
+        return console.log(err);
+    }
+    console.log('The package version number ' + package.version + ' has been created!');
+  });
+}
+
+function majorVersionRelease() {
+  var version = package.version.split('.');
+  var majorVersion = Number(version[0]);
+  version[0] = majorVersion+=1;
+  for (var i = 1; i < version.length; i++){
+    version[i] = 0;
+  }
+  package.version = version.join('.');
+  savePackageJSON();
+}
+
+function minorVersionDevelopment() {
+  var version = package.version.split('.');
+  for (var i = 1; i < version.length; i++){
+    version[i] = Number(version[i]);
+  }
+  if(version[2]<9){
+    version[2]+=1;
+  } else {
+    version[1]+=1;
+    version[2] = 0;
+  }
+  package.version = version.join('.');
+  savePackageJSON();
+}
+
+
+gulp.task('devVersion', function (callback) {
+  minorVersionDevelopment();
+  callback();
+});
+
+gulp.task('build', function(theme, env, themeFolder, callback) {
   setEnvironment(env);
-  themeName = theme + '-' + environment;
-  setBuildFolder(themeName);
-  console.log('Theme name: ', theme, ' Environment: ', environment);
+  themeName = theme + '-' + environment + '-' + package.version;
+  setBuildFolder(themeFolder, themeName);
+  runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
+});
+
+gulp.task('release', function (theme, themeFolder, callback) {
+  setEnvironment('prod');
+  majorVersionRelease();
+  themeName = theme + '-' + environment + '-' + package.version;
+  setBuildFolder(themeFolder, themeName);
+  console.log('release: ', buildFolder);
   runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
 });
 
 gulp.task('watch', function () {
   gulp.watch(paths.watch, ['build']);
-});
-
-gulp.task('clean-build', function(callback){
-  return del(buildFolder, callback);
 });
 
 
@@ -58,19 +104,7 @@ gulp.task('copy-images', function () {
 });
 
 
-gulp.task('watch-wp-content', function () {
-  return gulp.watch(['./wp-content/themes/**/*.*'], ['copy-wp-content']);
-});
-
 gulp.task('clean-build', function(callback){
-  return del(buildFolder, callback);
+  return gulp.src(buildFolder, {read:false}).pipe(clean({force:true}));
 });
-
-gulp.task('copy-wp-content', function () {
-  return gulp.src('./wp-content/themes/**/*.*').pipe(gulp.dest('../fthelp-staging/wp-content/themes'));
-});
-
-// gulp.task('wp-local', function(callback) {
-//   runSequence('clean-build', 'build-css', 'copy-template', 'copy-images', 'deploy-theme', callback);
-// });
 

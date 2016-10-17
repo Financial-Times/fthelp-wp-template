@@ -43,7 +43,7 @@ body {
     border-top: solid 1px #979797;
   }
 
-  .home-template, .category-template, .subcategory-template, .contact-template, .content-template, .search-template {
+  .home-template, .category-template, .subcategory-template, .contact-template, .content-template, .search-template, .legal-template {
     @include layout-padding();
   }
 
@@ -66,7 +66,7 @@ body {
     }
   }
 
-  .content-template, .search-template {
+  .content-template, .search-template, .legal-template {
     div.chat-container {
       margin-bottom: 16px;
       @include oGridRespondTo($from: M) {
@@ -99,12 +99,12 @@ body {
 @import './components/back-to-top';
 @import './components/breadcrumbs';
 
-
 @import './pages/home';
 @import './pages/category';
 @import './pages/subcategory';
 @import './pages/contact';
 @import './pages/index';
 @import './pages/search';
+@import './pages/legal';
 
 

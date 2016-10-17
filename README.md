@@ -15,11 +15,14 @@ npm install
 ## Build
 
 
-```
-gulp build --theme fthelp --env dev
-or 
-gulp build --theme fthelp --env prod
+gulp build --theme fthelp --env dev --themeFolder ../fthelp-staging/wp-content/themes/
 
+```
+gulp watch --theme fthelp --env dev --themeFolder ../fthelp-staging/wp-content/themes/
+
+```
+
+gulp release --theme fthelp
 
 ```
 
