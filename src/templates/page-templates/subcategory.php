@@ -29,16 +29,14 @@ get_header(); ?>
       </div>
       <div class="o-grid-row">
         <div data-o-grid-colspan="12" class="content-container">
-          <?php the_content(__('(more...)')); ?>
+          <?php echo do_shortcode('[subpages sort_column="menu_order" class="category" link_after=" <span class=\'caret\'>&nbsp;</span>"]') ?>
         </div>
       </div>
 
       <?php get_template_part( 'partials/back-to-top' ); ?>
 
     <?php endwhile; else: ?>
-      <div data-o-grid-colspan="12">
-        <?php _e('Sorry, no pages matched your criteria.'); ?>
-      </div>
+      <?php get_template_part( 'partials/not-found' ); ?>
     <?php endif; ?>
 
   </div>

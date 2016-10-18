@@ -1,6 +1,9 @@
 $o-grid-is-silent: true;
 @import 'o-grid/main';
 
+$o-header-is-silent: true;
+@import 'o-header/main';
+
 $o-colors-is-silent: true;
 @import 'o-colors/main';
 
@@ -34,6 +37,17 @@ body {
       font-size: 32px;
       margin-top: 25px;
     }
+  }
+
+  h2.o-typography-subhead--crosshead {
+    @include MetricWebRegular();
+
+    border: none;
+    font-size:26px;
+    color:#4a4a4a;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
   }
 
   hr {
@@ -98,6 +112,9 @@ body {
 @import './components/primary-action';
 @import './components/back-to-top';
 @import './components/breadcrumbs';
+@import './components/top-answer';
+@import './components/no-result';
+@import './components/footer';
 
 @import './pages/home';
 @import './pages/category';

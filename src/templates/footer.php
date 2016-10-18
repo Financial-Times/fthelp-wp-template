@@ -1,140 +1,103 @@
-
-
-    <footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="" data-trackable="footer">
-      <div class="o-footer__container">
-
-        <div class="o-footer__row">
-          <nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
-            <div class="o-footer__matrix-group o-footer__matrix-group--1">
-              <h6 class="o-footer__matrix-title">
-                Support
-              </h6>
-              <div class="o-footer__matrix-content" id="o-footer-section-0">
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//help.ft.com">Help</a>
-                      <a class="o-footer__matrix-link" href="//www.ft.com/aboutus">About Us</a>
-                  </div>
-              </div>
-            </div>
-            <div class="o-footer__matrix-group o-footer__matrix-group--1">
-              <h6 class="o-footer__matrix-title">
-                Legal &amp; Privacy
-              </h6>
-              <div class="o-footer__matrix-content" id="o-footer-section-1">
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/terms-conditions/">Terms &amp; Conditions</a>
-                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/privacy/">Privacy</a>
-                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/cookies/">Cookies</a>
-                      <a class="o-footer__matrix-link" href="//help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
-
-                  </div>
-              </div>
-            </div>
-            <div class="o-footer__matrix-group o-footer__matrix-group--2">
-              <h6 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
-                Services
-              </h6>
-              <div class="o-footer__matrix-content" id="o-footer-section-2">
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//sub.ft.com/spa_5">Individual Subscriptions</a>
-                      <a class="o-footer__matrix-link" href="//enterprise.ft.com/en-gb/services/group-subscriptions/">Group Subscriptions</a>
-                      <a class="o-footer__matrix-link" href="//enterprise.ft.com/en-gb/services/republishing/">Republishing</a>
-                      <a class="o-footer__matrix-link" href="//www.businessesforsale.com/ft2/notices">Contracts &amp; Tenders</a>
-                      <a class="o-footer__matrix-link" href="//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&amp;#x3D;471">Analysts Research</a>
-                  </div>
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.exec-appointments.com/">Executive Job Search</a>
-                      <a class="o-footer__matrix-link" aria-label="Advertise with the F T" href="//fttoolkit.co.uk/d/">Advertise with the FT</a>
-                      <a class="o-footer__matrix-link" aria-label="Follow the F T on Twitter" href="//twitter.com/ft">Follow the FT on Twitter</a>
-                  </div>
-              </div>
-            </div>
-            <div class="o-footer__matrix-group o-footer__matrix-group--2">
-              <h6 class="o-footer__matrix-title" aria-controls="o-footer-section-3">
-                Tools
-              </h6>
-              <div class="o-footer__matrix-content" id="o-footer-section-3">
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//markets.ft.com/data/portfolio/dashboard">Portfolio</a>
-                      <a class="o-footer__matrix-link" href="//ftepaper.ft.com">Today's Paper</a>
-                      <a class="o-footer__matrix-link" href="//markets.ft.com/data/alerts/">Alerts Hub</a>
-                      <a class="o-footer__matrix-link" href="//lexicon.ft.com/">Lexicon</a>
-                      <a class="o-footer__matrix-link" href="//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016">MBA Rankings</a>
-                  </div>
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//markets.ft.com/Research/Economic-Calendar">Economic Calendar</a>
-                      <a class="o-footer__matrix-link" href="//nbe.ft.com/nbe/profile.cfm">Newsletters</a>
-                      <a class="o-footer__matrix-link" href="//markets.ft.com/research/Markets/Currencies?segid&amp;#x3D;70113">Currency Converter</a>
-                      <a class="o-footer__matrix-link" aria-label="E-books" href="//www.ft.com/ebooks">Ebooks</a>
-                  </div>
-              </div>
-            </div>
-            <div class="o-footer__matrix-group o-footer__matrix-group--6">
-              <h6 class="o-footer__matrix-title" aria-controls="o-footer-section-4">
-                More from FT Group
-              </h6>
-              <div class="o-footer__matrix-content" id="o-footer-section-4">
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.agendaweek.com/">Agenda</a>
-                      <a class="o-footer__matrix-link" href="//www.analyseafrica.com/">Analyse Africa</a>
-                      <a class="o-footer__matrix-link" href="//www.boardiq.com/">Board IQ</a>
-                      <a class="o-footer__matrix-link" href="//www.ftiecla.com/">Corporate Learning Alliance</a>
-                      <a class="o-footer__matrix-link" href="//www.dpn-online.com/">DPN: Deutsche Pensions &amp; Investment Nachrichten</a>
-                  </div>
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.execsense.com/">ExecSense</a>
-                      <a class="o-footer__matrix-link" href="//www.fdiintelligence.com/">FDI Intelligence</a>
-                      <a class="o-footer__matrix-link" href="//financialadvisoriq.com/">Financial Advisor IQ</a>
-                      <a class="o-footer__matrix-link" aria-label="F T Chinese" href="//www.ftchinese.com/">FT Chinese</a>
-                      <a class="o-footer__matrix-link" aria-label="F T Live" href="//live.ft.com/">FT Live</a>
-                  </div>
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" aria-label="F T Property Listings" href="//propertylistings.ft.com/">FT Property Listings</a>
-                      <a class="o-footer__matrix-link" aria-label="F T Advisor" href="//www.ftadviser.com/">FT Advisor</a>
-                      <a class="o-footer__matrix-link" href="//www.fundfire.com/">Fund Fire</a>
-                      <a class="o-footer__matrix-link" href="//www.globalriskregulator.com/">Global Risk Regulator</a>
-                      <a class="o-footer__matrix-link" href="//howtospendit.ft.com/">How to Spend It</a>
-                  </div>
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.ignites.com/">Ignites</a>
-                      <a class="o-footer__matrix-link" href="//www.ignitesasia.com/">Ignites Asia</a>
-                      <a class="o-footer__matrix-link" href="//www.igniteseurope.com/">Ignites Europe</a>
-                      <a class="o-footer__matrix-link" href="//www.investorschronicle.co.uk/">Investors Chronicle</a>
-                      <a class="o-footer__matrix-link" href="//www.mandatewire.com/">Mandate Wire</a>
-                  </div>
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.nyif.com/">New York Insitute of Finance</a>
-                      <a class="o-footer__matrix-link" href="//www.non-execs.com/">Non Executive Directors Club</a>
-                      <a class="o-footer__matrix-link" href="//www.pensions-expert.com/">Pensions Expert</a>
-                      <a class="o-footer__matrix-link" href="//www.pwmnet.com/">Professional Wealth Management</a>
-                      <a class="o-footer__matrix-link" href="//the125.ft.com/">125 Club</a>
-                  </div>
-                  <div class="o-footer__matrix-column">
-                      <a class="o-footer__matrix-link" href="//www.thebanker.com/">The Banker</a>
-                      <a class="o-footer__matrix-link" href="//www.thebankerdatabase.com/">The Banker Database</a>
-                      <a class="o-footer__matrix-link" href="//www.thisisafricaonline.com/">This is Africa</a>
-                  </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-
-        <div class="o-footer__copyright" role="contentinfo">
-          <small>
-            Markets data delayed by at least 15 minutes. &#xA9; THE FINANCIAL TIMES LTD 2016.
-            <abbr title="Financial Times" aria-label="F T">FT</abbr> and &#x2018;Financial Times&#x2019; are trademarks of The Financial Times Ltd.<br></br>
-            The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://www.ft.com/editorialcode" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a>.
-          </small>
-        </div>
-
-      </div>
-      <div class="o-footer__brand">
-        <div class="o-footer__container">
-          <div class="o-footer__brand-logo"></div>
-        </div>
-      </div>
-    </footer>
-
+  <footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="" data-trackable="footer" data-trackable-terminate="">
+					<div class="o-footer__container">
+				
+						<div class="o-footer__row">
+							<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
+								<div class="o-footer__matrix-group o-footer__matrix-group--1" data-trackable="group | Support">
+									<h6 class="o-footer__matrix-title">
+										Support
+									</h6>
+									<div class="o-footer__matrix-content" id="o-footer-section-0">
+											<div class="o-footer__matrix-column">
+				
+													<a class="o-footer__matrix-link js-webapp-link" data-trackable="visit-webapp" href="https://app.ft.com" hidden>Open in app</a>
+													<a class="o-footer__matrix-link js-android-link" data-trackable="open-android-app" href="http://www.ft.com/androidapp" hidden>Open in app</a>
+													<a class="o-footer__matrix-link" href="http://help.ft.com" data-trackable="Help Centre">Help Centre</a>
+													<a class="o-footer__matrix-link" href="http://www.ft.com/aboutus" data-trackable="About Us">About Us</a>
+											</div>
+									</div>
+								</div>
+								<div class="o-footer__matrix-group o-footer__matrix-group--1" data-trackable="group | Legal &amp; Privacy">
+									<h6 class="o-footer__matrix-title">
+										Legal &amp; Privacy
+									</h6>
+									<div class="o-footer__matrix-content" id="o-footer-section-1">
+											<div class="o-footer__matrix-column">
+				
+													<a class="o-footer__matrix-link" href="http://help.ft.com/help/legal-privacy/terms-conditions/" data-trackable="Terms &amp; Conditions">Terms &amp; Conditions</a>
+													<a class="o-footer__matrix-link" href="http://help.ft.com/help/legal-privacy/privacy/" data-trackable="Privacy">Privacy</a>
+													<a class="o-footer__matrix-link" href="http://help.ft.com/help/legal-privacy/cookies/" data-trackable="Cookies">Cookies</a>
+													<a class="o-footer__matrix-link" href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/" data-trackable="Copyright">Copyright</a>
+											</div>
+									</div>
+								</div>
+								<div class="o-footer__matrix-group o-footer__matrix-group--2" data-trackable="group | Services">
+									<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
+										Services
+									</h6>
+									<div class="o-footer__matrix-content" id="o-footer-section-2">
+											<div class="o-footer__matrix-column">
+				
+													<a class="o-footer__matrix-link" href="http://live.ft.com/" data-trackable="Conferences &amp; Events">Conferences &amp; Events</a>
+													<a class="o-footer__matrix-link" href="https://sub.ft.com/spa_5" data-trackable="Individual Subscriptions">Individual Subscriptions</a>
+													<a class="o-footer__matrix-link" href="http://enterprise.ft.com/en-gb/services/group-subscriptions/" data-trackable="Group Subscriptions">Group Subscriptions</a>
+													<a class="o-footer__matrix-link" href="http://enterprise.ft.com/en-gb/services/republishing/" data-trackable="Republishing">Republishing</a>
+													<a class="o-footer__matrix-link" href="http://www.businessesforsale.com/ft2/notices" data-trackable="Contracts &amp; Tenders">Contracts &amp; Tenders</a>
+											</div>
+											<div class="o-footer__matrix-column">
+				
+													<a class="o-footer__matrix-link" href="https://commerce.uk.reuters.com/purchase/mostPopular.do?rpc=471" data-trackable="Analysts Research">Analysts Research</a>
+													<a class="o-footer__matrix-link" href="https://www.exec-appointments.com/" data-trackable="Executive Job Search">Executive Job Search</a>
+													<a class="o-footer__matrix-link" href="http://fttoolkit.co.uk/d/" data-trackable="Advertise with the FT">Advertise with the FT</a>
+													<a class="o-footer__matrix-link" href="https://twitter.com/ft" data-trackable="Follow the FT on Twitter">Follow the FT on Twitter</a>
+													<a class="o-footer__matrix-link" href="http://www.ft.com/ebooks" data-trackable="Ebooks">Ebooks</a>
+											</div>
+									</div>
+								</div>
+								<div class="o-footer__matrix-group o-footer__matrix-group--2" data-trackable="group | Tools">
+									<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-3">
+										Tools
+									</h6>
+									<div class="o-footer__matrix-content" id="o-footer-section-3">
+											<div class="o-footer__matrix-column">
+				
+													<a class="o-footer__matrix-link" href="http://markets.ft.com/data/portfolio/dashboard" data-trackable="Portfolio">Portfolio</a>
+													<a class="o-footer__matrix-link" href="http://www.ft.com/uk-edition" data-trackable="ePaper">ePaper</a>
+													<a class="o-footer__matrix-link" href="http://markets.ft.com/data/alerts/" data-trackable="Alerts Hub">Alerts Hub</a>
+													<a class="o-footer__matrix-link" href="http://lexicon.ft.com/?ft_site=falcon" data-trackable="Lexicon">Lexicon</a>
+													<a class="o-footer__matrix-link" href="http://rankings.ft.com/businessschoolrankings/global-mba-ranking-2016?ft_site=falcon" data-trackable="MBA Rankings">MBA Rankings</a>
+											</div>
+											<div class="o-footer__matrix-column">
+				
+													<a class="o-footer__matrix-link" href="http://markets.ft.com/data/world/economic-calendar" data-trackable="Economic Calendar">Economic Calendar</a>
+													<a class="o-footer__matrix-link" href="https://www.ft.com/news-feed" data-trackable="News feed">News feed</a>
+													<a class="o-footer__matrix-link" href="http://nbe.ft.com/nbe/profile.cfm?ft_site=falcon" data-trackable="Newsletters">Newsletters</a>
+													<a class="o-footer__matrix-link" href="http://markets.ft.com/research/Markets/Currencies?segid=70113" data-trackable="Currency Converter">Currency Converter</a>
+													<a class="o-footer__matrix-link" href="http://presscuttings.ft.com/presscuttings/search.htm" data-trackable="Press Cuttings">Press Cuttings</a>
+											</div>
+									</div>
+								</div>
+							</nav>
+							<h6 class="o-footer__more-from-ft">
+								<a href="https://www.ft.com/more-from-ft-group">More from the FT Group <i class="o-icons-icon o-icons-icon--arrow-right"></i></a>
+							</h6>
+						</div>
+				
+						<div class="o-footer__copyright" role="contentinfo" data-trackable="small-print">
+							<small>
+								Markets data delayed by at least 15 minutes. &#xA9; THE FINANCIAL TIMES LTD .
+								<abbr title="Financial Times">FT</abbr> and &#x2018;Financial Times&#x2019; are trademarks of The Financial Times Ltd.<br>
+								The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://www.ft.com/editorialcode">FT Editorial Code of Practice</a>.
+							</small>
+						</div>
+				
+					</div>
+					<div class="o-footer__brand">
+						<div class="o-footer__container">
+							<div class="o-footer__brand-logo"></div>
+						</div>
+					</div>
+				</footer>
 
   <?php wp_footer(); ?>
   

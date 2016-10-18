@@ -11,7 +11,7 @@ get_header(); ?>
 
   <div class="search-template o-grid-container" data-trackable="search">
 
-    <?php get_template_part( 'partials/search-form-2' ); ?>
+    <?php get_template_part( 'partials/search-form' ); ?>
 
     <?php if (have_posts()) :  ?>
   
@@ -29,14 +29,17 @@ get_header(); ?>
             </div>
           <?php
           // Start the loop.
-          endwhile; ?>
+          endwhile; 
+          ?>
+
         </div>
       </div>
 
       <?php get_template_part( 'partials/back-to-top' ); ?>
 
     <?php else : ?>
-      <div class="o-grid-row">
+
+      <div class="o-grid-row o-grid-row--compact">
         <div data-o-grid-colspan="12" class="no-result">
           <div class="icon">
             <h1>Search Results for: <?php echo get_search_query()?></h1>
@@ -44,6 +47,7 @@ get_header(); ?>
           </div>
         </div>
       </div>
+
     <?php endif; ?>
 
   </div>

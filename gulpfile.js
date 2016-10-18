@@ -11,6 +11,15 @@ var buildFolder = '';
 var themeName = '';
 var environment = 'development';
 
+var cheerio = require('cheerio');
+var handlebars = require('handlebars');
+var request = require("request");
+// var read = require('read-file');
+
+var footerTemplate = fs.readFileSync('./src/handlebars/footer.handlebars', 'utf8');
+
+
+
 var paths = {
   scss: ['./src/scss/main.scss'],
   js : ['./src/js/main.js'],
@@ -72,7 +81,7 @@ gulp.task('build', function(theme, env, themeFolder, callback) {
   setEnvironment(env);
   themeName = theme + '-' + environment + '-' + package.version;
   setBuildFolder(themeFolder, themeName);
-  runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
+  runSequence('clean-build', 'obt-css', 'obt-js', 'build-footer', 'copy-templates', 'copy-images', callback);
 });
 
 gulp.task('release', function (theme, themeFolder, callback) {
@@ -107,4 +116,21 @@ gulp.task('copy-images', function () {
 gulp.task('clean-build', function(callback){
   return gulp.src(buildFolder, {read:false}).pipe(clean({force:true}));
 });
+
+gulp.task('build-footer', function(callback){
+  request("https://www.ft.com", function(error, response, body) {
+    var $ = cheerio.load(body);
+    var footer = $.html('footer.o-footer');
+    footer = footer.replace(/href="\//g, 'href="https:\/\/www.ft.com\/')
+    var template = handlebars.compile(footerTemplate);
+    fs.writeFile('./src/templates/footer.php', template({footer:footer}), function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      callback();
+    });
+  });
+});
+
+
 

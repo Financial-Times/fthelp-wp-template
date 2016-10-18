@@ -8,11 +8,15 @@
   },
   "author": "Laurent Muchacho",
   "dependencies": {
+    "cheerio": "^0.22.0",
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.2",
     "gulp-param": "^1.0.3",
     "gulp-rename": "^1.2.2",
+    "handlebars": "^4.0.5",
     "origami-build-tools": "^5.5.2",
+    "read-file": "^0.2.0",
+    "request": "^2.75.0",
     "run-sequence": "^1.2.2"
   }
 }

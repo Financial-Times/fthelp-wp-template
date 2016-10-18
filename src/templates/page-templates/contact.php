@@ -48,9 +48,7 @@ get_header(); ?>
         </div>
 
       <?php endwhile; else: ?>
-        <div data-o-grid-colspan="12">
-          <?php _e('Sorry, no pages matched your criteria.'); ?>
-        </div>
+        <?php get_template_part( 'partials/not-found' ); ?>
       <?php endif; ?>
 
     </div>

@@ -1,0 +1,42 @@
+.no-result {
+  padding-bottom: 30px;
+
+  .icon {
+    text-align: center;
+    background-image: url("images/primary-action-2/404-error.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100px 100px;
+    margin-top: 25px;
+    padding-top: 100px;
+    H1 {
+     @include MetricWebSemiBold();
+      font-size: 40px;
+      margin-bottom: 0;
+      @include oGridRespondTo($until: M) {
+        font-size: 32px;
+      }
+    }
+    H2 {
+     @include MetricWebSemiBold();
+      margin-top: 15px;
+      font-size: 20px;
+      a {
+        @include MetricWebSemiBold();
+        font-size:20px;
+        color:oColorsGetPaletteColor("org-b2c-dark");
+        line-height:26px;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
+        }
+
+        span.caret {
+          @include list-caret();
+        }
+
+      }
+    }
+  }
+}

@@ -16,13 +16,15 @@ get_header(); ?>
     <?php get_template_part( 'partials/primary-action' ); ?>
 
     <div class="o-grid-row">
-      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <?php the_content(__('(more...)')); ?>
-      <?php endwhile; else: ?>
+
+      <div data-o-grid-colspan="12"><hr/></div>
       <div data-o-grid-colspan="12">
-        <?php _e('Sorry, no posts matched your criteria.'); ?>
+        <h2 class="o-typography-subhead--crosshead">HELP TOPICS</h2>
+        <?php echo do_shortcode('[subpages depth="1" sort_column="menu_order" class="help-topic" link_after=" <span class=\'caret\'>&nbsp;</span>" exclude="' . get_post_meta(get_the_ID(), 'help-topic-exclude', true) . '"]') ?>
       </div>
-      <?php endif; ?>
+
+      <?php get_template_part( 'partials/top-answered' ); ?>
+
     </div>
     
     <?php get_template_part( 'partials/back-to-top' ); ?>

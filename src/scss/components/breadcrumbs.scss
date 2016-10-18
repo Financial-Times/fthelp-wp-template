@@ -18,13 +18,11 @@
       }
     }
     a {
-      @include MetricWebSemiBold();
-      color: oColorsGetPaletteColor("org-b2c-dark");
-      text-decoration: none;
-      &:hover {
-        text-decoration: none;
-        border-bottom: 1px dotted oColorsGetPaletteColor("org-b2c-dark");
-      }
+      @include oHeaderLink;
+      @include oHeaderFancyLink;
+      @include oColorsFor(o-header-subnav-link);
+      display: inline-block;
+      padding: 0;
       span {
         @include MetricWebSemiBold();
         color: oColorsGetPaletteColor("org-b2c-dark");

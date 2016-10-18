@@ -11,21 +11,12 @@
     }
   }
 
-
   div.related-container {
-    h2.o-typography-subhead--crosshead {
-      @include MetricWebRegular();
-      border-bottom: none;
-      font-size:26px;
-      color:#4a4a4a;
-      margin-top: 20px;
-      margin-bottom: 0;
-    }
-
     ul.related-question {
       margin:20px 0;
       padding: 0;
       @include list-li-caret();
     }
   }
+
 }
