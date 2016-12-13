@@ -1,0 +1,16 @@
+body {
+  #primary-nav {
+    .o-header__container {
+      padding-left: 30px;
+      padding-right: 30px;
+      @include oGridRespondTo($until: M) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }    
+      @include oGridRespondTo($from: M) {
+        padding-left: 30px;
+        padding-right: 30px;
+      }    
+    }
+  }
+}

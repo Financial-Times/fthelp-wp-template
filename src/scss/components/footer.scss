@@ -24,3 +24,16 @@
   vertical-align: baseline;
   margin-bottom: -4px;
 }
+
+
+.js-webapp-link[hidden], .js-android-link[hidden], .js-optout-link[hidden] {
+  display: none;
+}
+.js-webapp-link[hidden="false"], .js-android-link[hidden="false"], .js-optout-link[hidden="false"] {
+  display: inline-block;
+}
+
+.o-header__drawer-menu-list .o-header__drawer-menu-button {
+  margin:16px;
+  width: 90%;
+}

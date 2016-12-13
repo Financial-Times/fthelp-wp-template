@@ -1,3 +1,19 @@
+// console.log('main.js');
+
+var FT_User = document.cookie.indexOf('FT_User');
+var FT_User_map = {};
+if (FT_User > -1) {
+  FT_User_value = document.cookie.slice(FT_User).split(';')[0].split(':');
+  var v;
+  for (var i = 0; i < FT_User_value.length; i++) {
+    v = FT_User_value[i].split('=');
+    FT_User_map[v[0]] = v[1];
+  }
+
+} else {
+  FT_User = false;
+}
+
 
 var oTracking = require('o-tracking');
 
@@ -54,7 +70,14 @@ function getLinkTrackingEvent(category, pos, context){
   return track;
 }
 
+var DOMContentLoaded = false;
 document.addEventListener("o.DOMContentLoaded", function() {
+  if (DOMContentLoaded) {
+    return;
+  }
+  DOMContentLoaded = true;
+
+  // console.log('DOMContentLoaded');
 
   otrackinginit();
 
@@ -168,9 +191,9 @@ document.addEventListener("o.DOMContentLoaded", function() {
   function widowsFormatting(item) {
     var caret = '<span class="caret">&nbsp;</span>';
     var text = item.innerHTML.split(caret)[0].trim().split(' ');
-    var lastword = '<nobr>' + text.pop() + ' ' + caret + '</nobr>';
+    var lastword = '<nobr>' + text.splice(text.length-3).join(' ') + ' ' + caret + '</nobr>';
     text.push(lastword);
-    console.log(text.join(' '));
+    // console.log(text.join(' '));
     item.innerHTML = text.join(' ');
   }
 
@@ -186,6 +209,52 @@ document.addEventListener("o.DOMContentLoaded", function() {
     }
   });
 
+
+  var IOS_DEVICE_REGEX = /OS (7|8|9|10).* like Mac OS X.*/i;
+  var ANDROID_DEVICE_REGEX = /Android (4\.[3-9]|[5-9])/i;
+
+  function isWebAppCapableDevice (userAgent) {
+    return IOS_DEVICE_REGEX.test(userAgent);
+  }
+
+  function isModernAndroidDevice (userAgent) {
+    return ANDROID_DEVICE_REGEX.test(userAgent);
+  }
+
+  function showWebAppLink () {
+    document.querySelectorAll('.js-webapp-link').forEach(function (a) {
+      a.pathname = location.pathname;
+      a.search = location.search;
+      a.hidden = false;
+    });
+  }
+
+  function showAndroidLink () {
+    document.querySelectorAll('.js-android-link').forEach(function (a) {
+      var param = 'location=' + encodeURIComponent(location.pathname + location.search);
+      a.search = a.search + (a.search.length ? '&' : '?') + param;
+      a.hidden = false;
+    });
+  }
+
+  function showOptoutLink () {
+    document.querySelectorAll('.js-optout-link').forEach(function (a) {
+      var param = encodeURIComponent(location.href);
+      a.search = '?location=' + param;
+      a.hidden = false;
+    });
+  }
+
+  // console.log('FT_User:', FT_User)
+
+
+  if (isWebAppCapableDevice(navigator.userAgent)) {
+    showWebAppLink();
+  } else if (isModernAndroidDevice(navigator.userAgent)) {
+    showAndroidLink();
+  } else if(FT_User) {
+    showOptoutLink();
+  }
 
 });
 

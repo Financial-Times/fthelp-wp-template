@@ -48,6 +48,12 @@ get_header(); ?>
         </div>
       </div>
 
+      <div class="o-grid-row">
+        <?php get_template_part( 'partials/top-answered' ); ?>
+      </div>
+
+      <?php get_template_part( 'partials/back-to-top' ); ?>
+
     <?php endif; ?>
 
   </div>
