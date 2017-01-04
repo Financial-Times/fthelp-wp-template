@@ -15,7 +15,7 @@ npm install
 ## Build
 
 
-gulp build --theme fthelp --env dev --themeFolder ../fthelp-staging/wp-content/themes/ --version 0.0.2
+gulp build --theme fthelp --env dev --themeFolder ../fthelp-staging/wp-content/themes/ --version 0.0.4
 
 gulp build --theme fthelp --env dev --themeFolder ../fthelp-staging/wp-content/themes/
 

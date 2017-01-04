@@ -13,10 +13,12 @@ var isConfigSet = false;
 var buildFolder = '';
 var themeName = '';
 var environment = 'development';
+var themeInfo = '';
 
 
 var footerTemplate = fs.readFileSync('./src/handlebars/footer.handlebars', 'utf8');
 var headerTemplate = fs.readFileSync('./src/handlebars/header.handlebars', 'utf8');
+var themeInfoTemplate = fs.readFileSync('./src/handlebars/themeInfo.handlebars', 'utf8');
 
 var paths = {
   scss: ['./src/scss/main.scss'],
@@ -83,28 +85,41 @@ function setBuildConfig(theme, env, themeFolder, version) {
   console.log('setBuildConfig');
 
   setEnvironment(env);
+
   themeName = theme + '-' + environment + '-' + (version||package.version);
+
+  var template = handlebars.compile(themeInfoTemplate);
+
+  themeInfo = template({
+    name: theme,
+    version:(version||package.version),
+    environment:env,
+    description: package.description,
+    author : package.author,
+    homepage: package.homepage
+  });
+
   setBuildFolder(themeFolder, themeName);
 }
 
 gulp.task('build', function(theme, env, themeFolder, version, callback) {
   setBuildConfig(theme, env, themeFolder, version);
-  runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
+  runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', 'write-theme-info', callback);
 });
 
-gulp.task('build-prod', function(theme, env, themeFolder, version, callback) {
-  setBuildConfig(theme, env, themeFolder, version);
-  runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
-});
+// gulp.task('build-prod', function(theme, env, themeFolder, version, callback) {
+//   setBuildConfig(theme, env, themeFolder, version);
+//   runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
+// });
 
-gulp.task('release', function (theme, themeFolder, callback) {
-  setEnvironment('prod');
-  majorVersionRelease();
-  themeName = theme + '-' + environment + '-' + package.version;
-  setBuildFolder(themeFolder, themeName);
-  console.log('release: ', buildFolder);
-  runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
-});
+// gulp.task('release', function (theme, themeFolder, callback) {
+//   setEnvironment('prod');
+//   majorVersionRelease();
+//   themeName = theme + '-' + environment + '-' + package.version;
+//   setBuildFolder(themeFolder, themeName);
+//   console.log('release: ', buildFolder);
+//   runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
+// });
 
 gulp.task('watch', function () {
   gulp.watch(paths.watch, ['build']);
@@ -209,5 +224,21 @@ gulp.task('build-header', function(callback){
     });
   });
 });
+
+gulp.task('write-theme-info', function(callback){
+  var styleContent = fs.readFileSync(buildFolder + '/style.css', 'utf8');
+
+  fs.writeFile(buildFolder + '/style.css', themeInfo + styleContent, function(err) {
+    if(err) {
+        return console.log(err);
+    }
+    callback();
+  });
+
+});
+
+
+
+
 
 

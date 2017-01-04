@@ -6,7 +6,7 @@
 
 <div class="chat chat-offline" id="liveagent_button_offline_573260000008OSe">
   <div>Chat with FT Customer Service</div>
-  <a href="#void" role="button" class="cta chat-offline o-buttons o-buttons--b2c" data-trackable="chat" disabled="disabled">Currently offline</a>
+  <a href="javascript:void(0)" role="button" class="cta chat-offline o-buttons o-buttons--b2c" data-trackable="chat" disabled="disabled">Currently offline</a>
 </div>
 
 
