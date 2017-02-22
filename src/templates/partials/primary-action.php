@@ -17,9 +17,9 @@
     </div>
   </div>
   <div data-o-grid-colspan="12 M6">
-    <div class="cta old-ft">
+    <!-- div class="cta old-ft">
       <div>Return to the Old FT.com</div>
       <a href="//www.ft.com/opt-out-confirm?location=help" data-trackable="opt-out" role="button" class="cta o-buttons o-buttons--b2c">Go back</a>
-    </div>
+    </div -->
   </div>
 </div>

@@ -10,9 +10,9 @@
 									<div class="o-footer__matrix-content" id="o-footer-section-0">
 											<div class="o-footer__matrix-column">
 				
-													<a class="js-optout-link o-footer__matrix-link" data-trackable="opt-out" href="https://www.ft.com/opt-out-confirm?location=%2F" hidden="true">
+													<!-- a class="js-optout-link o-footer__matrix-link" data-trackable="opt-out" href="https://www.ft.com/opt-out-confirm?location=%2F" hidden="true">
 														Return to the old FT.com
-													</a><a class="o-footer__matrix-link js-webapp-link" data-trackable="visit-webapp" href="https://app.ft.com" hidden>Open in app</a>
+													</a --><a class="o-footer__matrix-link js-webapp-link" data-trackable="visit-webapp" href="https://app.ft.com" hidden>Open in app</a>
 													<a class="o-footer__matrix-link js-android-link" data-trackable="open-android-app" href="http://www.ft.com/androidapp" hidden>Open in app</a>
 													<a class="o-footer__matrix-link" href="http://help.ft.com" data-trackable="Help Centre">Help Centre</a>
 													<a class="o-footer__matrix-link" href="http://www.ft.com/aboutus" data-trackable="About Us">About Us</a>
