@@ -36,46 +36,7 @@ function setEnvironment(env) {
   environment = (env === 'prod')? 'production' : 'development';
 }
 
-function savePackageJSON() {
-  fs.writeFile('./package.json', JSON.stringify(package, null, 2), function(err) {
-    if(err) {
-        return console.log(err);
-    }
-    console.log('The package version number ' + package.version + ' has been created!');
-  });
-}
 
-function majorVersionRelease() {
-  var version = package.version.split('.');
-  var majorVersion = Number(version[0]);
-  version[0] = majorVersion+=1;
-  for (var i = 1; i < version.length; i++){
-    version[i] = 0;
-  }
-  package.version = version.join('.');
-  savePackageJSON();
-}
-
-function minorVersionDevelopment() {
-  var version = package.version.split('.');
-  for (var i = 1; i < version.length; i++){
-    version[i] = Number(version[i]);
-  }
-  if(version[2]<9){
-    version[2]+=1;
-  } else {
-    version[1]+=1;
-    version[2] = 0;
-  }
-  package.version = version.join('.');
-  savePackageJSON();
-}
-
-
-gulp.task('devVersion', function (callback) {
-  minorVersionDevelopment();
-  callback();
-});
 
 function setBuildConfig(theme, env, themeFolder, version) {
   if (isConfigSet) {
@@ -99,7 +60,7 @@ function setBuildConfig(theme, env, themeFolder, version) {
     homepage: package.homepage
   });
 
-  setBuildFolder(themeFolder, themeName);
+  setBuildFolder(themeFolder||'wp-content/themes/', themeName);
 }
 
 gulp.task('build', function(theme, env, themeFolder, version, callback) {
@@ -107,24 +68,10 @@ gulp.task('build', function(theme, env, themeFolder, version, callback) {
   runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', 'write-theme-info', callback);
 });
 
-// gulp.task('build-prod', function(theme, env, themeFolder, version, callback) {
-//   setBuildConfig(theme, env, themeFolder, version);
-//   runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
-// });
-
-// gulp.task('release', function (theme, themeFolder, callback) {
-//   setEnvironment('prod');
-//   majorVersionRelease();
-//   themeName = theme + '-' + environment + '-' + package.version;
-//   setBuildFolder(themeFolder, themeName);
-//   console.log('release: ', buildFolder);
-//   runSequence('clean-build', 'obt-css', 'obt-js', 'copy-templates', 'copy-images', callback);
-// });
 
 gulp.task('watch', function () {
   gulp.watch(paths.watch, ['build']);
 });
-
 
 gulp.task('obt-css', function(){
   return obt.build.sass(gulp, {sass: paths.scss, buildFolder: buildFolder, buildCss: 'style.css', env: environment});
@@ -140,10 +87,10 @@ gulp.task('copy-images', function () {
   return gulp.src('./src/images/**/*.*').pipe(gulp.dest(buildFolder + '/images'));
 });
 
-
 gulp.task('clean-build', function(callback){
   return gulp.src(buildFolder, {read:false}).pipe(clean({force:true}));
 });
+
 
 
 gulp.task('build-ft-navigation', function(theme, env, themeFolder, version, callback){

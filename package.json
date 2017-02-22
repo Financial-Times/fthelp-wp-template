@@ -2,7 +2,7 @@
   "name": "fthelp-wp-template",
   "version": "1.0.6",
   "description": "The theme used for the responsive ft.com help website.",
-  "homepage" : "https://github.com/Financial-Times/fthelp-wp-template",
+  "homepage": "https://github.com/Financial-Times/fthelp-wp-template",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Financial-Times/fthelp-wp-template.git"
@@ -15,7 +15,7 @@
     "gulp-param": "^1.0.3",
     "gulp-rename": "^1.2.2",
     "handlebars": "^4.0.5",
-    "origami-build-tools": "^5.5.2",
+    "origami-build-tools": "^5.5.5",
     "read-file": "^0.2.0",
     "request": "^2.75.0",
     "run-sequence": "^1.2.2"
