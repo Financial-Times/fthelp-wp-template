@@ -16,8 +16,7 @@ get_header(); ?>
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   
       <div class="o-grid-row">
-        <div data-o-grid-colspan="12 M4" class="chat-container"><?php get_template_part( 'partials/primary-action-chat' ); ?></div>
-        <div data-o-grid-colspan="12 Mhide"><hr/></div>
+        <div data-o-grid-colspan="12 M4"></div>
         <div data-o-grid-colspan="12 M8" class="content-container">
           <h1><?php the_title(); ?></h1>
           <?php the_content(__('(more...)')); ?>
