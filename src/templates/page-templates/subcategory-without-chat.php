@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Sub Category Page
+ * Template Name: Sub Category Page - without chat
  *
  * @package WordPress
  * @subpackage ft_help
