@@ -33,20 +33,6 @@ get_header(); ?>
 
         <?php get_template_part( 'partials/back-to-top' ); ?>
 
-        <div class="o-grid-row">
-          <div data-o-grid-colspan="12">
-            <div class="o-grid-container o-grid-container--bleed feedback-container">
-              <div class="o-grid-row o-grid-row--compact">
-                <div data-o-grid-colspan="12 M8" class="msg">
-                  <H4>Help us improve.</H4>
-                  <p>We're constantly improving and would like to hear from you.</p>
-                </div>
-                <div data-o-grid-colspan="12 M4" class="action"><a href="https://www.ft.com/nps-feedback" data-trackable="feedback-banner" class="o-buttons o-buttons--standout o-buttons--big">Provide feedback</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       <?php endwhile; else: ?>
         <?php get_template_part( 'partials/not-found' ); ?>
       <?php endif; ?>
